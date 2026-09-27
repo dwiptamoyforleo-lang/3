@@ -3,390 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Showcase - Modern Website Starter</title>
-  <meta name="description" content="Discover sample projects, interface layouts, and architectural patterns built using this clean web foundation.">
-  
-  <meta property="og:title" content="Showcase - Modern Website Starter">
-  <meta property="og:description" content="Discover sample projects, interface layouts, and architectural patterns.">
+  <meta name="description" content="A curated archive of brand systems, digital experiences, campaigns, and visual worlds.">
+  <meta property="og:title" content="Work — North/03">
+  <meta property="og:description" content="A curated archive of brand systems, digital experiences, campaigns, and visual worlds.">
   <meta property="og:type" content="website">
-
-  <!-- Google Fonts Preconnect -->
+  <title>Work — North/03</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
-  <!-- Immediate Theme Initializer to Prevent Flash of Wrong Theme -->
-  <script>
-    (function() {
-      const pref = localStorage.getItem('site-theme-preference') || localStorage.getItem('site-theme') || 'dark';
-      let theme = pref;
-      if (pref === 'system') {
-        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-      }
-      document.documentElement.setAttribute('data-theme', theme);
-      document.documentElement.setAttribute('data-theme-preference', pref);
-    })();
-  </script>
+  
+<script>
+(function(){
+  const pref = localStorage.getItem('site-theme-preference') || localStorage.getItem('site-theme') || 'dark';
+  const theme = pref === 'system'
+    ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+    : (pref === 'light' ? 'light' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+  document.documentElement.setAttribute('data-theme-preference', pref);
+})();
+</script>
 </head>
-<body>
-  <!-- Horizontal Scroll Progress Indicator -->
-  <div class="scroll-progress-container" aria-hidden="true">
-    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
-  </div>
-
-  <!-- ==========================================================================
-       SITE HEADER & NAVIGATION
-       ========================================================================== -->
-  <header class="site-header" id="site-header">
-    <div class="container header-container">
-      <a href="index.html" class="brand-logo" aria-label="Home">
-        <span class="brand-symbol">◈</span>
-        <span class="brand-name">BrandName</span>
-      </a>
-
-      <nav class="desktop-nav" aria-label="Main Navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="features.html" class="nav-link">Features</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="showcase.html" class="nav-link active">Showcase</a>
-        <a href="testimonials.html" class="nav-link">Testimonials</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-      </nav>
-
-      <div class="header-actions">
-        <div class="theme-selector">
-          <button class="theme-toggle-btn" aria-label="Select theme" aria-haspopup="true" aria-expanded="false" title="Select theme">
-            <span class="theme-btn-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </span>
-          </button>
-          <div class="theme-dropdown" role="menu" aria-label="Theme options">
-            <button type="button" class="theme-dropdown-item" data-theme-value="light" role="menuitem">
-              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="23" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-              <span class="theme-item-text">Light theme</span>
-              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </button>
-            <button type="button" class="theme-dropdown-item" data-theme-value="dark" role="menuitem">
-              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-              <span class="theme-item-text">Dark theme</span>
-              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </button>
-            <button type="button" class="theme-dropdown-item" data-theme-value="system" role="menuitem">
-              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-              <span class="theme-item-text">System default</span>
-              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </button>
-          </div>
-        </div>
-        <a href="contact.html" class="btn btn-outline btn-sm hide-on-mobile">Sign In</a>
-        <a href="overview.html" class="btn btn-primary btn-sm">Get Started</a>
-        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span class="menu-bar"></span>
-          <span class="menu-bar"></span>
-          <span class="menu-bar"></span>
+<body class="page-work">
+<div class="scroll-progress-container" aria-hidden="true"><div class="scroll-progress-bar" id="scroll-progress-bar"></div></div>
+<div class="topline"><div class="wrap topline-inner"><span>INDEPENDENT CREATIVE STUDIO</span><span>BRAND · DIGITAL · SPACE · CULTURE</span><span>OPEN FOR SELECT PROJECTS / 2026</span></div></div>
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand" aria-label="North 03 home">
+      <span class="brand-mark"><span></span><span></span><span></span></span>
+      <span class="brand-text">NORTH<span>/</span>03</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation"><a href="showcase.html" class="nav-link active">Work</a><a href="features.html" class="nav-link ">Services</a><a href="about.html" class="nav-link ">Studio</a><a href="testimonials.html" class="nav-link ">Voices</a><a href="contact.html" class="nav-link ">Contact</a></nav>
+    <div class="header-tools">
+      <div class="theme-selector">
+        <button class="theme-toggle-btn" type="button" aria-label="Select theme" aria-haspopup="true" aria-expanded="false">
+          <span class="theme-btn-icon"></span>
+          <span class="theme-btn-label">Theme</span>
+          <span class="theme-chevron">⌄</span>
         </button>
-      </div>
-    </div>
-
-    <!-- Mobile Navigation Drawer -->
-    <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
-      <nav class="mobile-nav-links">
-        <a href="index.html" class="mobile-nav-link">Home</a>
-        <a href="features.html" class="mobile-nav-link">Features</a>
-        <a href="about.html" class="mobile-nav-link">About</a>
-        <a href="showcase.html" class="mobile-nav-link active">Showcase</a>
-        <a href="testimonials.html" class="mobile-nav-link">Testimonials</a>
-        <a href="contact.html" class="mobile-nav-link">Contact</a>
-      </nav>
-      <div class="mobile-nav-cta">
-        <a href="overview.html" class="btn btn-primary" style="width: 100%; text-align: center;">Get Started</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ==========================================================================
-       PAGE HERO BANNER
-       ========================================================================== -->
-  <section class="page-hero">
-    <div class="container page-hero-inner">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span>/</span>
-        <span>Showcase</span>
-      </div>
-      <h1 class="page-title">Project Showcase &amp; Implementations</h1>
-      <p class="page-lead">
-        Browse interactive layouts, interface designs, and scalable full-stack patterns built on this foundation. Click any item for an expanded preview.
-      </p>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SHOWCASE GRID & FILTERS
-       ========================================================================== -->
-  <section class="section">
-    <div class="container">
-      <!-- Interactive Filter Bar -->
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="analytics">Dashboards &amp; Data</button>
-        <button class="filter-btn" data-filter="mobile">Mobile Systems</button>
-        <button class="filter-btn" data-filter="cloud">Cloud Architecture</button>
-      </div>
-
-      <!-- Cards Grid -->
-      <div class="grid grid-3">
-        <!-- Item 1 -->
-        <div class="card showcase-card" data-category="analytics" data-lightbox data-title="Real-Time Analytics Suite" data-desc="Interactive charts, customizable telemetry widgets, and sub-50ms data streaming interfaces." data-icon="analytics">
-          <div class="showcase-thumbnail">
-            <div class="thumbnail-placeholder bg-gradient-1">
-              <span class="thumbnail-icon" style="color: #60a5fa;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="18" y1="20" x2="18" y2="10"></line>
-                  <line x1="12" y1="20" x2="12" y2="4"></line>
-                  <line x1="6" y1="20" x2="6" y2="14"></line>
-                  <path d="M4 20h16"></path>
-                </svg>
-              </span>
-            </div>
-            <span class="zoom-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-              Preview
-            </span>
-          </div>
-          <div class="showcase-info">
-            <span class="showcase-category">Analytics</span>
-            <h4 class="showcase-title">Real-Time Analytics Suite</h4>
-            <p class="showcase-desc">High-frequency telemetry dashboards with adaptive responsive layouts.</p>
-          </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="card showcase-card" data-category="mobile" data-lightbox data-title="Native-Feel Mobile App" data-desc="Touch gesture navigation, bottom sheet sheets, and optimized thumb zones for mobile devices." data-icon="mobile">
-          <div class="showcase-thumbnail">
-            <div class="thumbnail-placeholder bg-gradient-2">
-              <span class="thumbnail-icon" style="color: #22d3ee;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                </svg>
-              </span>
-            </div>
-            <span class="zoom-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-              Preview
-            </span>
-          </div>
-          <div class="showcase-info">
-            <span class="showcase-category">Mobile</span>
-            <h4 class="showcase-title">Native-Feel Mobile App</h4>
-            <p class="showcase-desc">Touch gesture menus with instant mobile drawer interactions.</p>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="card showcase-card" data-category="cloud" data-lightbox data-title="Global Edge Deployment" data-desc="Automated continuous integration pipeline distributing static assets across 200+ edge locations." data-icon="cloud">
-          <div class="showcase-thumbnail">
-            <div class="thumbnail-placeholder bg-gradient-3">
-              <span class="thumbnail-icon" style="color: #a78bfa;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                </svg>
-              </span>
-            </div>
-            <span class="zoom-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-              Preview
-            </span>
-          </div>
-          <div class="showcase-info">
-            <span class="showcase-category">Cloud</span>
-            <h4 class="showcase-title">Global Edge Deployment</h4>
-            <p class="showcase-desc">Geo-distributed content delivery with zero cache stampedes.</p>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="card showcase-card" data-category="analytics" data-lightbox data-title="Financial Health Monitor" data-desc="Comprehensive cash-flow tracking with multi-currency conversion and automated reports." data-icon="finance">
-          <div class="showcase-thumbnail">
-            <div class="thumbnail-placeholder bg-gradient-2">
-              <span class="thumbnail-icon" style="color: #34d399;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                  <polyline points="17 6 23 6 23 12"></polyline>
-                </svg>
-              </span>
-            </div>
-            <span class="zoom-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-              Preview
-            </span>
-          </div>
-          <div class="showcase-info">
-            <span class="showcase-category">Analytics</span>
-            <h4 class="showcase-title">Financial Health Monitor</h4>
-            <p class="showcase-desc">High-clarity data visualization for complex transactional pipelines.</p>
-          </div>
-        </div>
-
-        <!-- Item 5 -->
-        <div class="card showcase-card" data-category="mobile" data-lightbox data-title="E-Commerce Mobile Flow" data-desc="Frictionless checkout paths with integrated touch payments and accessible form fields." data-icon="ecommerce">
-          <div class="showcase-thumbnail">
-            <div class="thumbnail-placeholder bg-gradient-1">
-              <span class="thumbnail-icon" style="color: #fb7185;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                  <path d="M3 6h18"></path>
-                  <path d="M16 10a4 4 0 0 1-8 0"></path>
-                </svg>
-              </span>
-            </div>
-            <span class="zoom-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-              Preview
-            </span>
-          </div>
-          <div class="showcase-info">
-            <span class="showcase-category">Mobile</span>
-            <h4 class="showcase-title">E-Commerce Mobile Flow</h4>
-            <p class="showcase-desc">Fast, single-handed mobile catalog navigation and checkout.</p>
-          </div>
-        </div>
-
-        <!-- Item 6 -->
-        <div class="card showcase-card" data-category="cloud" data-lightbox data-title="Zero-Trust Security Mesh" data-desc="Granular role-based permissions and encrypted microservice transport layers." data-icon="security">
-          <div class="showcase-thumbnail">
-            <div class="thumbnail-placeholder bg-gradient-3">
-              <span class="thumbnail-icon" style="color: #a78bfa;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  <path d="m9 12 2 2 4-4"></path>
-                </svg>
-              </span>
-            </div>
-            <span class="zoom-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-              Preview
-            </span>
-          </div>
-          <div class="showcase-info">
-            <span class="showcase-category">Cloud</span>
-            <h4 class="showcase-title">Zero-Trust Security Mesh</h4>
-            <p class="showcase-desc">Standardized authentication models with end-to-end token auditing.</p>
-          </div>
+        <div class="theme-dropdown" role="menu">
+          <button type="button" class="theme-dropdown-item" data-theme-value="light" role="menuitem"><span>01</span><strong>Light</strong><small>Paper / day</small><i></i></button>
+          <button type="button" class="theme-dropdown-item" data-theme-value="dark" role="menuitem"><span>02</span><strong>Dark</strong><small>Ink / night</small><i></i></button>
+          <button type="button" class="theme-dropdown-item" data-theme-value="system" role="menuitem"><span>03</span><strong>System</strong><small>Follow device</small><i></i></button>
         </div>
       </div>
-
-      <!-- Call to Action Banner -->
-      <div class="cta-banner">
-        <h3 class="cta-banner-title">Have a specific design requirement?</h3>
-        <p class="cta-banner-text">
-          We can assist in transforming your requirements into clean, production-grade components.
-        </p>
-        <a href="contact.html" class="btn btn-primary btn-lg">Submit Project Brief</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SITE FOOTER
-       ========================================================================== -->
-  <footer class="site-footer">
-    <div class="container footer-container">
-      <div class="footer-col brand-col">
-        <a href="index.html" class="brand-logo footer-logo">
-          <span class="brand-symbol">◈</span>
-          <span class="brand-name">BrandName</span>
-        </a>
-        <p class="footer-desc">
-          A modern, modular web template built with clean HTML5, robust CSS, and lightweight JavaScript.
-        </p>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col-title">Pages</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="overview.html">Get Started Overview</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="showcase.html">Showcase</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col-title">Resources</h4>
-        <ul class="footer-links">
-          <li><a href="about.html">Documentation</a></li>
-          <li><a href="features.html">Component Library</a></li>
-          <li><a href="showcase.html">Design System</a></li>
-          <li><a href="contact.html">Support Desk</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col-title">Legal</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">Privacy Policy</a></li>
-          <li><a href="index.html">Terms of Service</a></li>
-          <li><a href="index.html">Security Standards</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container footer-bottom-inner">
-        <p>&copy; <span class="current-year">2026</span> BrandName. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="index.html">Privacy</a>
-          <a href="index.html">Terms</a>
-          <a href="contact.html">Contact</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ==========================================================================
-       LIGHTBOX MODAL
-       ========================================================================== -->
-  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <button class="lightbox-close" id="lightbox-close" aria-label="Close dialog">&times;</button>
-    <div class="lightbox-content-box">
-      <div class="lightbox-icon-wrap" id="lightbox-icon">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="18" y1="20" x2="18" y2="10"></line>
-          <line x1="12" y1="20" x2="12" y2="4"></line>
-          <line x1="6" y1="20" x2="6" y2="14"></line>
-          <path d="M4 20h16"></path>
-        </svg>
-      </div>
-      <h3 class="lightbox-title" id="lightbox-title">Item Title</h3>
-      <p class="lightbox-caption" id="lightbox-caption">Item Description</p>
+      <a href="contact.html" class="signin-link">Sign in</a>
+      <a href="overview.html" class="start-link">Start a project <span>↗</span></a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
-
-  <script type="module" src="script.js"></script>
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-drawer-head"><span>MENU / 03</span><button class="mobile-close-btn" type="button" aria-label="Close menu">×</button></div>
+    <nav class="mobile-nav-links" aria-label="Mobile navigation"><a href="index.html" class="mobile-nav-link "><span>Home</span><span>↗</span></a><a href="showcase.html" class="mobile-nav-link active"><span>Work</span><span>↗</span></a><a href="features.html" class="mobile-nav-link "><span>Services</span><span>↗</span></a><a href="about.html" class="mobile-nav-link "><span>Studio</span><span>↗</span></a><a href="testimonials.html" class="mobile-nav-link "><span>Voices</span><span>↗</span></a><a href="contact.html" class="mobile-nav-link "><span>Contact</span><span>↗</span></a></nav>
+    <div class="mobile-drawer-foot">
+      <a href="contact.html" class="mobile-signin">Sign in <span>↗</span></a>
+      <a href="overview.html" class="mobile-cta">Start a project <span>↗</span></a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="page-hero work-hero"><div class="wrap"><p class="eyebrow">Work / archive</p><h1>A FEW THINGS<br><em>WE'VE MADE.</em></h1><p>Selected identity, digital, campaign, and spatial projects. Built as complete systems, not isolated deliverables.</p></div></section>
+<section class="section work-archive"><div class="wrap"><div class="filter-bar" role="toolbar" aria-label="Project filters"><button class="filter-btn active" data-filter="all">All work</button><button class="filter-btn" data-filter="identity">Identity</button><button class="filter-btn" data-filter="digital">Digital</button><button class="filter-btn" data-filter="campaign">Campaign</button><button class="filter-btn" data-filter="space">Space</button></div>
+<div class="archive-grid">
+  <button class="archive-card archive-card-xl" data-category="identity" data-lightbox data-title="Sarvatt / Brand system" data-desc="A hospitality identity that turns everyday dining into a distinct cultural point of view. Identity, packaging, signage, photography direction."><div class="archive-image"><img src="assets/images/sarvatt-journey-logo.jpg" alt="Sarvatt identity project"><span class="archive-index">01</span><span class="archive-open">Open project ↗</span></div><div class="archive-meta"><span>Identity · Hospitality</span><h2>Sarvatt / Everyday, re-framed.</h2></div></button>
+  <button class="archive-card archive-card-md" data-category="campaign" data-lightbox data-title="Table Stories / Campaign" data-desc="A campaign language for a new hospitality group, built around close-up food photography, intimate copy, and collectible table moments."><div class="archive-image"><img src="assets/images/sarvatt-mishtaan-thaal.jpg" alt="Food campaign project"><span class="archive-index">02</span><span class="archive-open">Open project ↗</span></div><div class="archive-meta"><span>Campaign · Art direction</span><h2>Table Stories / Small moments, loud memory.</h2></div></button>
+  <button class="archive-card archive-card-tall" data-category="digital" data-lightbox data-title="Gallery Index / Digital" data-desc="An editorial web experience built to turn a visual archive into an active, browsable story with rhythm, scale, and motion."><div class="archive-image"><img src="assets/images/Screenshot_20260925_063720_Gallery.jpg" alt="Digital editorial project"><span class="archive-index">03</span><span class="archive-open">Open project ↗</span></div><div class="archive-meta"><span>Digital · Editorial</span><h2>Gallery Index / The archive moves.</h2></div></button>
+  <button class="archive-card archive-card-wide" data-category="space" data-lightbox data-title="Dining Hall / Environment" data-desc="Environmental storytelling for a hospitality space, from arrival cues and wayfinding to menus and wall graphics."><div class="archive-image"><img src="assets/images/sarvatt-dining-hall.jpg" alt="Hospitality environment project"><span class="archive-index">04</span><span class="archive-open">Open project ↗</span></div><div class="archive-meta"><span>Space · Experience</span><h2>Dining Hall / A room with a point of view.</h2></div></button>
+  <button class="archive-card archive-card-md" data-category="identity" data-lightbox data-title="Mishthaan / Packaging" data-desc="A packaging system that uses bold type, warm color, and tactile composition to give a familiar product category a contemporary shelf presence."><div class="archive-image"><img src="assets/images/sarvatt-naashta-pitara.jpg" alt="Packaging system project"><span class="archive-index">05</span><span class="archive-open">Open project ↗</span></div><div class="archive-meta"><span>Identity · Packaging</span><h2>Mishthaan / The box becomes the brand.</h2></div></button>
+  <button class="archive-card archive-card-wide" data-category="campaign" data-lightbox data-title="Journey / Launch" data-desc="A launch narrative built around movement, place, and the sensory details of a contemporary hospitality brand."><div class="archive-image"><img src="assets/images/sarvatt-journey-logo.jpg" alt="Launch campaign project"><span class="archive-index">06</span><span class="archive-open">Open project ↗</span></div><div class="archive-meta"><span>Campaign · Launch</span><h2>Journey / From first touch to first visit.</h2></div></button>
+</div></div></section>
+<section class="section work-statement"><div class="wrap statement-grid"><div><p class="eyebrow">Not seeing your category?</p><h2>Good. We like <em>new problems.</em></h2></div><a href="contact.html" class="circle-link">Talk about<br>your project<br>↗</a></div></section></main>
+<footer class="site-footer">
+  <div class="wrap footer-main">
+    <div class="footer-statement">
+      <span class="eyebrow">NORTH / 03</span>
+      <h2>MAKE SOMETHING<br><em>WORTH NOTICING.</em></h2>
+      <a href="overview.html" class="text-link large">Begin a project <span>↗</span></a>
+    </div>
+    <div class="footer-columns">
+      <div><span class="footer-label">Explore</span><a href="index.html">Home</a><a href="showcase.html">Work</a><a href="features.html">Services</a><a href="about.html">Studio</a></div>
+      <div><span class="footer-label">Connect</span><a href="contact.html">Contact</a><a href="contact.html">Sign in</a><a href="overview.html">Start here</a></div>
+      <div><span class="footer-label">Areas</span><span>Brand systems</span><span>Digital products</span><span>Campaigns</span><span>Spaces & culture</span></div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom"><span>© <span class="current-year"></span> North/03 Studio</span><span>Built for independent makers & ambitious teams</span><a href="index.html">Back to top ↑</a></div>
+</footer>
+<div class="lightbox" id="lightbox-modal" aria-hidden="true"><div class="lightbox-panel"><button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close project">×</button><p class="eyebrow" id="lightbox-label">Project / 03</p><h2 id="lightbox-title">Project</h2><p id="lightbox-caption">Description</p><a href="contact.html" class="text-link">Start a similar project <span>↗</span></a></div></div>
+<script type="module" src="script.js"></script>
 </body>
 </html>

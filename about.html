@@ -3,295 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - Modern Website Starter</title>
-  <meta name="description" content="Learn about our mission, design philosophy, team, and commitment to building accessible, high-performance web systems.">
-  
-  <meta property="og:title" content="About - Modern Website Starter">
-  <meta property="og:description" content="Learn about our mission, design philosophy, and team.">
+  <meta name="description" content="Meet an independent creative studio built around sharp thinking, strong craft, and useful collaboration.">
+  <meta property="og:title" content="Studio — North/03">
+  <meta property="og:description" content="Meet an independent creative studio built around sharp thinking, strong craft, and useful collaboration.">
   <meta property="og:type" content="website">
-
-  <!-- Google Fonts Preconnect -->
+  <title>Studio — North/03</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
-  <!-- Immediate Theme Initializer to Prevent Flash of Wrong Theme -->
-  <script>
-    (function() {
-      const pref = localStorage.getItem('site-theme-preference') || localStorage.getItem('site-theme') || 'dark';
-      let theme = pref;
-      if (pref === 'system') {
-        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-      }
-      document.documentElement.setAttribute('data-theme', theme);
-      document.documentElement.setAttribute('data-theme-preference', pref);
-    })();
-  </script>
+  
+<script>
+(function(){
+  const pref = localStorage.getItem('site-theme-preference') || localStorage.getItem('site-theme') || 'dark';
+  const theme = pref === 'system'
+    ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+    : (pref === 'light' ? 'light' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+  document.documentElement.setAttribute('data-theme-preference', pref);
+})();
+</script>
 </head>
-<body>
-  <!-- Horizontal Scroll Progress Indicator -->
-  <div class="scroll-progress-container" aria-hidden="true">
-    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
-  </div>
-
-  <!-- ==========================================================================
-       SITE HEADER & NAVIGATION
-       ========================================================================== -->
-  <header class="site-header" id="site-header">
-    <div class="container header-container">
-      <a href="index.html" class="brand-logo" aria-label="Home">
-        <span class="brand-symbol">◈</span>
-        <span class="brand-name">BrandName</span>
-      </a>
-
-      <nav class="desktop-nav" aria-label="Main Navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="features.html" class="nav-link">Features</a>
-        <a href="about.html" class="nav-link active">About</a>
-        <a href="showcase.html" class="nav-link">Showcase</a>
-        <a href="testimonials.html" class="nav-link">Testimonials</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-      </nav>
-
-      <div class="header-actions">
-        <div class="theme-selector">
-          <button class="theme-toggle-btn" aria-label="Select theme" aria-haspopup="true" aria-expanded="false" title="Select theme">
-            <span class="theme-btn-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </span>
-          </button>
-          <div class="theme-dropdown" role="menu" aria-label="Theme options">
-            <button type="button" class="theme-dropdown-item" data-theme-value="light" role="menuitem">
-              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="23" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-              <span class="theme-item-text">Light theme</span>
-              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </button>
-            <button type="button" class="theme-dropdown-item" data-theme-value="dark" role="menuitem">
-              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-              <span class="theme-item-text">Dark theme</span>
-              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </button>
-            <button type="button" class="theme-dropdown-item" data-theme-value="system" role="menuitem">
-              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-              <span class="theme-item-text">System default</span>
-              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </button>
-          </div>
-        </div>
-        <a href="contact.html" class="btn btn-outline btn-sm hide-on-mobile">Sign In</a>
-        <a href="overview.html" class="btn btn-primary btn-sm">Get Started</a>
-        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span class="menu-bar"></span>
-          <span class="menu-bar"></span>
-          <span class="menu-bar"></span>
+<body class="page-studio">
+<div class="scroll-progress-container" aria-hidden="true"><div class="scroll-progress-bar" id="scroll-progress-bar"></div></div>
+<div class="topline"><div class="wrap topline-inner"><span>INDEPENDENT CREATIVE STUDIO</span><span>BRAND · DIGITAL · SPACE · CULTURE</span><span>OPEN FOR SELECT PROJECTS / 2026</span></div></div>
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand" aria-label="North 03 home">
+      <span class="brand-mark"><span></span><span></span><span></span></span>
+      <span class="brand-text">NORTH<span>/</span>03</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation"><a href="showcase.html" class="nav-link ">Work</a><a href="features.html" class="nav-link ">Services</a><a href="about.html" class="nav-link active">Studio</a><a href="testimonials.html" class="nav-link ">Voices</a><a href="contact.html" class="nav-link ">Contact</a></nav>
+    <div class="header-tools">
+      <div class="theme-selector">
+        <button class="theme-toggle-btn" type="button" aria-label="Select theme" aria-haspopup="true" aria-expanded="false">
+          <span class="theme-btn-icon"></span>
+          <span class="theme-btn-label">Theme</span>
+          <span class="theme-chevron">⌄</span>
         </button>
-      </div>
-    </div>
-
-    <!-- Mobile Navigation Drawer -->
-    <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
-      <nav class="mobile-nav-links">
-        <a href="index.html" class="mobile-nav-link">Home</a>
-        <a href="features.html" class="mobile-nav-link">Features</a>
-        <a href="about.html" class="mobile-nav-link active">About</a>
-        <a href="showcase.html" class="mobile-nav-link">Showcase</a>
-        <a href="testimonials.html" class="mobile-nav-link">Testimonials</a>
-        <a href="contact.html" class="mobile-nav-link">Contact</a>
-      </nav>
-      <div class="mobile-nav-cta">
-        <a href="overview.html" class="btn btn-primary" style="width: 100%; text-align: center;">Get Started</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ==========================================================================
-       PAGE HERO BANNER
-       ========================================================================== -->
-  <section class="page-hero">
-    <div class="container page-hero-inner">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span>/</span>
-        <span>About</span>
-      </div>
-      <h1 class="page-title">Our Mission &amp; Guiding Philosophy</h1>
-      <p class="page-lead">
-        We believe the modern web should be lightning-fast, accessible to every user, and enjoyable for engineers to build and maintain.
-      </p>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       PHILOSOPHY SECTION
-       ========================================================================== -->
-  <section class="section">
-    <div class="container split-container">
-      <div class="split-content">
-        <span class="section-tagline">Why We Built This</span>
-        <h2 class="section-title">Rejecting unnecessary complexity in web engineering</h2>
-        <p class="split-lead">
-          Modern web development often drowns in hundreds of megabytes of nested dependencies, brittle tooling, and sluggish page loads.
-        </p>
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.65;">
-          Our framework takes a disciplined approach: clean semantic HTML5 markup, structured CSS custom properties for effortless theming, and targeted vanilla JavaScript. The result is an experience that renders instantly, respects user bandwidth, and scales seamlessly across multi-page architectures.
-        </p>
-        <div class="split-actions">
-          <a href="features.html" class="btn btn-primary">Check Architecture</a>
-          <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+        <div class="theme-dropdown" role="menu">
+          <button type="button" class="theme-dropdown-item" data-theme-value="light" role="menuitem"><span>01</span><strong>Light</strong><small>Paper / day</small><i></i></button>
+          <button type="button" class="theme-dropdown-item" data-theme-value="dark" role="menuitem"><span>02</span><strong>Dark</strong><small>Ink / night</small><i></i></button>
+          <button type="button" class="theme-dropdown-item" data-theme-value="system" role="menuitem"><span>03</span><strong>System</strong><small>Follow device</small><i></i></button>
         </div>
       </div>
-
-      <div class="split-visual">
-        <div class="visual-card">
-          <div class="visual-header">
-            <span class="visual-badge">Core Pillars</span>
-            <span class="visual-meta">Foundational Guidelines</span>
-          </div>
-          <div class="visual-body">
-            <ul class="value-list" style="margin-bottom: 0;">
-              <li class="value-item">
-                <span class="value-check">01</span>
-                <div>
-                  <strong style="color: #ffffff;">Accessibility First:</strong> Designed from day one to comply with WCAG 2.1 AA contrast and screen-reader accessibility standards.
-                </div>
-              </li>
-              <li class="value-item">
-                <span class="value-check">02</span>
-                <div>
-                  <strong style="color: #ffffff;">Instant Load Times:</strong> Optimized asset trees and zero runtime blocking guarantees rapid visual rendering.
-                </div>
-              </li>
-              <li class="value-item">
-                <span class="value-check">03</span>
-                <div>
-                  <strong style="color: #ffffff;">Maintainable Code:</strong> Clear folder hierarchy and intuitive class naming makes onboarding effortless.
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <a href="contact.html" class="signin-link">Sign in</a>
+      <a href="overview.html" class="start-link">Start a project <span>↗</span></a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </section>
-
-  <!-- ==========================================================================
-       TEAM SECTION
-       ========================================================================== -->
-  <section class="section" style="background-color: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-tagline">Leadership</span>
-        <h2 class="section-title">The team behind the framework</h2>
-        <p class="section-subtitle">
-          Dedicated engineers and product designers committed to crafting pristine web experiences.
-        </p>
-      </div>
-
-      <div class="grid grid-3">
-        <!-- Team Member 1 -->
-        <div class="card team-card">
-          <div class="team-avatar">EM</div>
-          <h3 class="team-name">Elena Morales</h3>
-          <span class="team-role">Head of Architecture</span>
-          <p class="team-bio">
-            Specializes in design systems, CSS architecture, and high-throughput web performance optimization.
-          </p>
-        </div>
-
-        <!-- Team Member 2 -->
-        <div class="card team-card">
-          <div class="team-avatar">JT</div>
-          <h3 class="team-name">James Turner</h3>
-          <span class="team-role">Principal Systems Engineer</span>
-          <p class="team-bio">
-            Focused on modular tooling, automated verification pipelines, and multi-page deployment strategies.
-          </p>
-        </div>
-
-        <!-- Team Member 3 -->
-        <div class="card team-card">
-          <div class="team-avatar">AL</div>
-          <h3 class="team-name">Aria Lin</h3>
-          <span class="team-role">Director of Accessibility</span>
-          <p class="team-bio">
-            Advocate for inclusive design, universal interaction patterns, and user experience standards.
-          </p>
-        </div>
-      </div>
-
-      <!-- Call to Action Banner -->
-      <div class="cta-banner">
-        <h3 class="cta-banner-title">Want to collaborate with us?</h3>
-        <p class="cta-banner-text">
-          We welcome contributions, feature suggestions, and bespoke development partnerships.
-        </p>
-        <a href="contact.html" class="btn btn-primary btn-lg">Reach Out Today</a>
-      </div>
+  </div>
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-drawer-head"><span>MENU / 03</span><button class="mobile-close-btn" type="button" aria-label="Close menu">×</button></div>
+    <nav class="mobile-nav-links" aria-label="Mobile navigation"><a href="index.html" class="mobile-nav-link "><span>Home</span><span>↗</span></a><a href="showcase.html" class="mobile-nav-link "><span>Work</span><span>↗</span></a><a href="features.html" class="mobile-nav-link "><span>Services</span><span>↗</span></a><a href="about.html" class="mobile-nav-link active"><span>Studio</span><span>↗</span></a><a href="testimonials.html" class="mobile-nav-link "><span>Voices</span><span>↗</span></a><a href="contact.html" class="mobile-nav-link "><span>Contact</span><span>↗</span></a></nav>
+    <div class="mobile-drawer-foot">
+      <a href="contact.html" class="mobile-signin">Sign in <span>↗</span></a>
+      <a href="overview.html" class="mobile-cta">Start a project <span>↗</span></a>
     </div>
-  </section>
-
-  <!-- ==========================================================================
-       SITE FOOTER
-       ========================================================================== -->
-  <footer class="site-footer">
-    <div class="container footer-container">
-      <div class="footer-col brand-col">
-        <a href="index.html" class="brand-logo footer-logo">
-          <span class="brand-symbol">◈</span>
-          <span class="brand-name">BrandName</span>
-        </a>
-        <p class="footer-desc">
-          A modern, modular web template built with clean HTML5, robust CSS, and lightweight JavaScript.
-        </p>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col-title">Pages</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="overview.html">Get Started Overview</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="showcase.html">Showcase</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col-title">Resources</h4>
-        <ul class="footer-links">
-          <li><a href="about.html">Documentation</a></li>
-          <li><a href="features.html">Component Library</a></li>
-          <li><a href="showcase.html">Design System</a></li>
-          <li><a href="contact.html">Support Desk</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col-title">Legal</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">Privacy Policy</a></li>
-          <li><a href="index.html">Terms of Service</a></li>
-          <li><a href="index.html">Security Standards</a></li>
-        </ul>
-      </div>
+  </div>
+</header>
+<main>
+<section class="page-hero about-hero"><div class="wrap"><p class="eyebrow">Studio / North 03</p><h1>NOT A<br><em>CONTENT FACTORY.</em></h1><p>We're a small independent creative studio built around senior thinking, strong craft, and the belief that good work should change the way people see the thing.</p></div></section>
+<section class="section studio-intro"><div class="wrap about-grid"><div><p class="section-index">01 / 04</p><p class="eyebrow">Why North/03</p></div><div><h2>Less volume.<br><em>More point of view.</em></h2><p>We work with founders, operators, culture-led teams, and growing companies at the moments when the old version of the brand no longer fits the ambition.</p><p>Sometimes that means a complete identity. Sometimes it means a website, a campaign, or a new way to tell the story. The common thread is making the idea clearer, sharper, and harder to forget.</p></div></div></section>
+<section class="section team-section"><div class="wrap"><div class="section-head-row"><div><p class="section-index">02 / 04</p><p class="eyebrow">Studio principles</p></div><span class="mini-note">A few things we refuse to compromise on.</span></div><div class="principle-grid"><article><strong>01</strong><h3>Curiosity before certainty</h3><p>We ask better questions before we draw prettier answers.</p></article><article><strong>02</strong><h3>Character + structure</h3><p>Distinctive ideas need systems strong enough to survive real use.</p></article><article><strong>03</strong><h3>Make it useful</h3><p>The final deliverable should help your team move, not create more work.</p></article><article><strong>04</strong><h3>Respect the audience</h3><p>Clarity is a form of taste. So is knowing when to stop.</p></article></div></div></section>
+<section class="section dark-band studio-band"><div class="wrap numbers-grid"><div><span>Studio since</span><strong>2018</strong></div><div><span>Typical team</span><strong>03–07</strong></div><div><span>Modes</span><strong>Remote / hybrid</strong></div><div><span>Projects</span><strong>Brand → launch</strong></div></div></section>
+<section class="section about-image-section"><div class="wrap image-split"><div class="image-frame"><img src="assets/images/sarvatt-dining-hall.jpg" alt="Creative direction in a physical space"></div><div class="image-note"><span class="eyebrow">The working model</span><h2>One idea.<br><em>Many touchpoints.</em></h2><p>We build the logic once, then let it travel: from the deck to the website, from the package to the campaign, from the first launch post to the last sign on the wall.</p><a href="features.html" class="text-link">See our services <span>↗</span></a></div></div></section></main>
+<footer class="site-footer">
+  <div class="wrap footer-main">
+    <div class="footer-statement">
+      <span class="eyebrow">NORTH / 03</span>
+      <h2>MAKE SOMETHING<br><em>WORTH NOTICING.</em></h2>
+      <a href="overview.html" class="text-link large">Begin a project <span>↗</span></a>
     </div>
-
-    <div class="footer-bottom">
-      <div class="container footer-bottom-inner">
-        <p>&copy; <span class="current-year">2026</span> BrandName. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="index.html">Privacy</a>
-          <a href="index.html">Terms</a>
-          <a href="contact.html">Contact</a>
-        </div>
-      </div>
+    <div class="footer-columns">
+      <div><span class="footer-label">Explore</span><a href="index.html">Home</a><a href="showcase.html">Work</a><a href="features.html">Services</a><a href="about.html">Studio</a></div>
+      <div><span class="footer-label">Connect</span><a href="contact.html">Contact</a><a href="contact.html">Sign in</a><a href="overview.html">Start here</a></div>
+      <div><span class="footer-label">Areas</span><span>Brand systems</span><span>Digital products</span><span>Campaigns</span><span>Spaces & culture</span></div>
     </div>
-  </footer>
+  </div>
+  <div class="wrap footer-bottom"><span>© <span class="current-year"></span> North/03 Studio</span><span>Built for independent makers & ambitious teams</span><a href="index.html">Back to top ↑</a></div>
+</footer>
 
-  <script type="module" src="script.js"></script>
+<script type="module" src="script.js"></script>
 </body>
 </html>

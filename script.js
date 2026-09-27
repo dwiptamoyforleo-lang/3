@@ -1,440 +1,235 @@
-/**
- * Modern Website Multi-Page JavaScript
- * Handles navigation states, theme toggle (dark/light), mobile menu, FAQ accordions, filters, lightboxes, and forms.
- */
+const THEME_ICONS = {
+  light: 'L',
+  dark: 'D',
+  system: 'S'
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initStickyHeader();
   initMobileMenu();
   initActiveNavLink();
-  initLightbox();
-  initFaqAccordion();
   initFilterBar();
+  initLightbox();
   initDynamicYear();
   initScrollReveal();
   initScrollProgressBar();
 });
 
-/* ==========================================================================
-   1. THEME SELECTOR & DROPDOWN (LIGHT, DARK, SYSTEM DEFAULT)
-   ========================================================================== */
-const THEME_ICONS = {
-  light: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`,
-  dark: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`,
-  system: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`
-};
-
-function resolveActualTheme(preference) {
-  if (preference === 'system') {
+function resolveActualTheme(preference){
+  if(preference === 'system'){
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   }
   return preference === 'light' ? 'light' : 'dark';
 }
 
-function applyThemePreference(preference) {
+function applyThemePreference(preference){
   const actualTheme = resolveActualTheme(preference);
   document.documentElement.setAttribute('data-theme', actualTheme);
   document.documentElement.setAttribute('data-theme-preference', preference);
   localStorage.setItem('site-theme-preference', preference);
   localStorage.setItem('site-theme', actualTheme);
-
-  // Update button trigger icons
-  const btnIcons = document.querySelectorAll('.theme-btn-icon');
-  btnIcons.forEach(span => {
-    span.innerHTML = THEME_ICONS[preference] || THEME_ICONS[actualTheme] || THEME_ICONS.dark;
-  });
-
-  // Update active status on dropdown options
-  const dropdownItems = document.querySelectorAll('.theme-dropdown-item');
-  dropdownItems.forEach(item => {
-    if (item.getAttribute('data-theme-value') === preference) {
-      item.classList.add('active');
-    } else {
-      item.classList.remove('active');
-    }
+  document.querySelectorAll('.theme-btn-icon').forEach(el => { el.textContent = THEME_ICONS[preference] || THEME_ICONS[actualTheme]; });
+  document.querySelectorAll('.theme-dropdown-item').forEach(item => {
+    item.classList.toggle('active', item.getAttribute('data-theme-value') === preference);
   });
 }
 
-function initThemeToggle() {
-  const savedPref = localStorage.getItem('site-theme-preference') || localStorage.getItem('site-theme') || 'dark';
-  applyThemePreference(savedPref);
+function closeThemeDropdowns(){
+  document.querySelectorAll('.theme-dropdown.open').forEach(drop => {
+    drop.classList.remove('open');
+    const btn = drop.closest('.theme-selector')?.querySelector('.theme-toggle-btn');
+    if(btn) btn.setAttribute('aria-expanded','false');
+  });
+}
 
-  // Listen to OS theme changes if user has 'system default' selected
-  if (window.matchMedia) {
+function initThemeToggle(){
+  const saved = localStorage.getItem('site-theme-preference') || localStorage.getItem('site-theme') || 'dark';
+  applyThemePreference(saved);
+  if(window.matchMedia){
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
-      const currentPref = localStorage.getItem('site-theme-preference') || 'dark';
-      if (currentPref === 'system') {
-        applyThemePreference('system');
-      }
+      const pref = localStorage.getItem('site-theme-preference') || 'dark';
+      if(pref === 'system') applyThemePreference('system');
     });
   }
-
-  // Handle dropdown toggle buttons
-  const selectors = document.querySelectorAll('.theme-selector');
-  selectors.forEach(selector => {
-    const toggleBtn = selector.querySelector('.theme-toggle-btn');
+  document.querySelectorAll('.theme-selector').forEach(selector => {
+    const btn = selector.querySelector('.theme-toggle-btn');
     const dropdown = selector.querySelector('.theme-dropdown');
-    if (!toggleBtn || !dropdown) return;
-
-    toggleBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
+    if(!btn || !dropdown) return;
+    btn.addEventListener('click', event => {
+      event.stopPropagation();
       const isOpen = dropdown.classList.contains('open');
-
-      // Close all other open dropdowns
-      document.querySelectorAll('.theme-dropdown.open').forEach(d => {
-        d.classList.remove('open');
-        d.closest('.theme-selector')?.querySelector('.theme-toggle-btn')?.setAttribute('aria-expanded', 'false');
-      });
-
-      if (!isOpen) {
+      closeThemeDropdowns();
+      if(!isOpen){
         dropdown.classList.add('open');
-        toggleBtn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-expanded','true');
       }
     });
-
-    const items = dropdown.querySelectorAll('.theme-dropdown-item');
-    items.forEach(item => {
-      item.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const chosen = item.getAttribute('data-theme-value');
-        applyThemePreference(chosen);
-        dropdown.classList.remove('open');
-        toggleBtn.setAttribute('aria-expanded', 'false');
+    dropdown.querySelectorAll('.theme-dropdown-item').forEach(item => {
+      item.addEventListener('click', event => {
+        event.stopPropagation();
+        applyThemePreference(item.getAttribute('data-theme-value'));
+        closeThemeDropdowns();
       });
     });
   });
-
-  // Close dropdown on outside click
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.theme-selector')) {
-      document.querySelectorAll('.theme-dropdown.open').forEach(d => {
-        d.classList.remove('open');
-        d.closest('.theme-selector')?.querySelector('.theme-toggle-btn')?.setAttribute('aria-expanded', 'false');
-      });
-    }
-  });
-
-  // Close dropdown on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.theme-dropdown.open').forEach(d => {
-        d.classList.remove('open');
-        d.closest('.theme-selector')?.querySelector('.theme-toggle-btn')?.setAttribute('aria-expanded', 'false');
-      });
+  document.addEventListener('click', closeThemeDropdowns);
+  document.addEventListener('keydown', event => {
+    if(event.key === 'Escape'){
+      closeThemeDropdowns();
+      const drawer = document.getElementById('mobile-nav-drawer');
+      if(drawer?.classList.contains('active')) closeMobileMenu();
     }
   });
 }
 
-/* ==========================================================================
-   2. STICKY HEADER ELEVATION
-   ========================================================================== */
-function initStickyHeader() {
+function initStickyHeader(){
   const header = document.getElementById('site-header');
-  if (!header) return;
-
-  const handleScroll = () => {
-    if (window.scrollY > 20) {
-      header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
-    } else {
-      header.style.boxShadow = 'none';
-    }
+  if(!header) return;
+  const onScroll = () => {
+    header.classList.toggle('is-scrolled', window.scrollY > 8);
   };
-
-  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 }
 
-/* ==========================================================================
-   3. MOBILE MENU DRAWER
-   ========================================================================== */
-function initMobileMenu() {
-  const menuBtn = document.getElementById('mobile-menu-btn');
+function closeMobileMenu(){
+  const btn = document.getElementById('mobile-menu-btn');
   const drawer = document.getElementById('mobile-nav-drawer');
-  if (!menuBtn || !drawer) return;
+  if(!btn || !drawer) return;
+  btn.setAttribute('aria-expanded','false');
+  drawer.setAttribute('aria-hidden','true');
+  drawer.classList.remove('active');
+  document.body.classList.remove('menu-open');
+}
 
-  const toggleMenu = () => {
-    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-    menuBtn.setAttribute('aria-expanded', String(!isExpanded));
-    drawer.classList.toggle('active');
-    drawer.setAttribute('aria-hidden', String(isExpanded));
+function initMobileMenu(){
+  const btn = document.getElementById('mobile-menu-btn');
+  const drawer = document.getElementById('mobile-nav-drawer');
+  if(!btn || !drawer) return;
+  const toggle = () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    if(open) closeMobileMenu();
+    else{
+      btn.setAttribute('aria-expanded','true');
+      drawer.setAttribute('aria-hidden','false');
+      drawer.classList.add('active');
+      document.body.classList.add('menu-open');
+    }
   };
+  btn.addEventListener('click', toggle);
+  drawer.querySelectorAll('a,.mobile-close-btn').forEach(el => {
+    el.addEventListener('click', closeMobileMenu);
+  });
+}
 
-  menuBtn.addEventListener('click', toggleMenu);
+function initActiveNavLink(){
+  const current = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.desktop-nav .nav-link,.mobile-nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if(href === current || (current === '' && href === 'index.html')) link.classList.add('active');
+  });
+}
 
-  // Close drawer when any mobile link is clicked
-  const mobileLinks = drawer.querySelectorAll('.mobile-nav-link, .btn:not(.theme-toggle-btn)');
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      menuBtn.setAttribute('aria-expanded', 'false');
-      drawer.classList.remove('active');
-      drawer.setAttribute('aria-hidden', 'true');
+function initFilterBar(){
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.archive-card[data-category]');
+  if(!buttons.length || !cards.length) return;
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(item => item.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.style.display = match ? '' : 'none';
+      });
     });
   });
 }
 
-/* ==========================================================================
-   4. MULTI-PAGE ACTIVE NAV LINK
-   ========================================================================== */
-function initActiveNavLink() {
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('.desktop-nav .nav-link, .mobile-nav-links .mobile-nav-link');
-
-  navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === '' && href === 'index.html') || (currentPath === 'index.html' && (href === 'index.html' || href === '/'))) {
-      link.classList.add('active');
-    }
-  });
-}
-
-/* ==========================================================================
-   5. LIGHTBOX / MODAL CONTROLLER
-   ========================================================================== */
-const CUSTOM_MODAL_ICONS = {
-  speed: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`,
-  analytics: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line><path d="M4 20h16"></path></svg>`,
-  mobile: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>`,
-  cloud: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>`,
-  finance: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`,
-  ecommerce: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>`,
-  security: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>`,
-  standards: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>`,
-  design: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5"></circle><circle cx="17.5" cy="10.5" r=".5"></circle><circle cx="8.5" cy="7.5" r=".5"></circle><circle cx="6.5" cy="12.5" r=".5"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>`,
-  collaboration: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
-  default: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line><path d="M4 20h16"></path></svg>`
-};
-
-function initLightbox() {
+function initLightbox(){
   const modal = document.getElementById('lightbox-modal');
-  const modalTitle = document.getElementById('lightbox-title');
-  const modalCaption = document.getElementById('lightbox-caption');
-  const modalIcon = document.getElementById('lightbox-icon');
-  const closeBtn = document.getElementById('lightbox-close');
-  if (!modal) return;
-
-  const triggers = document.querySelectorAll('[data-lightbox]');
-
-  const openModal = (title, desc, icon) => {
-    if (modalTitle) modalTitle.textContent = title;
-    if (modalCaption) modalCaption.textContent = desc;
-    if (modalIcon) {
-      if (icon && icon.trim().startsWith('<svg')) {
-        modalIcon.innerHTML = icon;
-      } else if (icon && CUSTOM_MODAL_ICONS[icon]) {
-        modalIcon.innerHTML = CUSTOM_MODAL_ICONS[icon];
-      } else {
-        modalIcon.innerHTML = CUSTOM_MODAL_ICONS['default'];
-      }
-    }
+  if(!modal) return;
+  const title = document.getElementById('lightbox-title');
+  const caption = document.getElementById('lightbox-caption');
+  const close = document.getElementById('lightbox-close');
+  const open = trigger => {
+    if(title) title.textContent = trigger.dataset.title || 'Project';
+    if(caption) caption.textContent = trigger.dataset.desc || 'Project details';
     modal.classList.add('active');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('menu-open');
   };
-
   const closeModal = () => {
     modal.classList.remove('active');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('menu-open');
   };
-
-  triggers.forEach(trigger => {
-    trigger.addEventListener('click', () => {
-      const title = trigger.getAttribute('data-title') || 'Feature Preview';
-      const desc = trigger.getAttribute('data-desc') || 'Expanded view of the selected component.';
-      const icon = trigger.getAttribute('data-icon') || 'analytics';
-      openModal(title, desc, icon);
-    });
-  });
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeModal);
-  }
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      closeModal();
-    }
-  });
+  modal.querySelector('.lightbox-panel')?.addEventListener('click', event => event.stopPropagation());
+  document.querySelectorAll('[data-lightbox]').forEach(trigger => trigger.addEventListener('click', () => open(trigger)));
+  close?.addEventListener('click', closeModal);
+  modal.addEventListener('click', event => { if(event.target === modal) closeModal(); });
+  document.addEventListener('keydown', event => { if(event.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
 }
 
-/* ==========================================================================
-   6. FAQ ACCORDION TOGGLE
-   ========================================================================== */
-function initFaqAccordion() {
-  const faqItems = document.querySelectorAll('.faq-item');
-  if (!faqItems.length) return;
-
-  faqItems.forEach(item => {
-    const questionBtn = item.querySelector('.faq-question');
-    if (!questionBtn) return;
-
-    questionBtn.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-
-      // Close all open items
-      faqItems.forEach(otherItem => otherItem.classList.remove('active'));
-
-      // Toggle clicked item
-      if (!isActive) {
-        item.classList.add('active');
-      }
-    });
-  });
-}
-
-/* ==========================================================================
-   7. SHOWCASE FILTER BAR
-   ========================================================================== */
-function initFilterBar() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.showcase-card[data-category]');
-  if (!filterBtns.length || !cards.length) return;
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterVal = btn.getAttribute('data-filter');
-
-      cards.forEach(card => {
-        const cardCat = card.getAttribute('data-category');
-        if (filterVal === 'all' || cardCat === filterVal) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-}
-
-/* ==========================================================================
-   8. CONTACT FORM SUBMISSION
-   ========================================================================== */
-window.handleContactSubmit = function(form) {
-  const formCard = document.getElementById('contact-form');
-  const successBox = document.getElementById('contact-success-box');
-  if (formCard && successBox) {
-    formCard.style.display = 'none';
-    successBox.style.display = 'block';
+window.handleContactSubmit = function(form){
+  const success = document.getElementById('contact-success-box');
+  if(form && success){
+    form.style.display = 'none';
+    success.style.display = 'block';
   }
 };
 
-window.resetContactForm = function() {
-  const formCard = document.getElementById('contact-form');
-  const successBox = document.getElementById('contact-success-box');
-  if (formCard && successBox) {
-    formCard.reset();
-    formCard.style.display = 'flex';
-    successBox.style.display = 'none';
+window.resetContactForm = function(){
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('contact-success-box');
+  if(form && success){
+    form.reset();
+    form.style.display = '';
+    success.style.display = 'none';
   }
 };
 
-/* ==========================================================================
-   9. DYNAMIC COPYRIGHT YEAR
-   ========================================================================== */
-function initDynamicYear() {
-  const yearEls = document.querySelectorAll('.current-year, #current-year');
-  const yearStr = new Date().getFullYear().toString();
-  yearEls.forEach(el => {
-    el.textContent = yearStr;
-  });
+function initDynamicYear(){
+  const year = new Date().getFullYear().toString();
+  document.querySelectorAll('.current-year').forEach(el => el.textContent = year);
 }
 
-/* ==========================================================================
-   10. SCROLL REVEAL (INTERSECTION OBSERVER)
-   ========================================================================== */
-function initScrollReveal() {
-  if (typeof IntersectionObserver === 'undefined') return;
-
-  // Select transition units across sections, cards, banners, and grids
-  const targets = document.querySelectorAll(
-    '.section-header, .card, .action-card, .why-card, .split-content, .split-visual, .cta-banner, .table-wrapper, .faq-item, [data-reveal]'
-  );
-
-  if (!targets.length) return;
-
-  targets.forEach(el => {
+function initScrollReveal(){
+  if(!('IntersectionObserver' in window)) return;
+  const targets = document.querySelectorAll('[data-reveal],.numbered-services article,.principle-grid article,.quote-card,.overview-grid article,.service-row');
+  targets.forEach((el,index) => {
     el.classList.add('reveal');
-
-    // Add gentle stagger delay for cards inside responsive grids
-    if (el.classList.contains('card') && el.parentElement && el.parentElement.classList.contains('grid')) {
-      const cardsInGrid = Array.from(el.parentElement.children).filter(child => child.classList.contains('card'));
-      const indexInGrid = cardsInGrid.indexOf(el);
-      if (indexInGrid > 0) {
-        const delay = (indexInGrid % 3) * 0.12;
-        el.style.transitionDelay = `${delay}s`;
-      }
-    }
+    el.style.transitionDelay = (index % 4) * 0.05 + 's';
   });
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -40px 0px',
-    threshold: 0.08
-  };
-
-  const revealObserver = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if(entry.isIntersecting){
         entry.target.classList.add('revealed');
         observer.unobserve(entry.target);
       }
     });
-  }, observerOptions);
-
-  targets.forEach(el => revealObserver.observe(el));
+  },{threshold:.08,rootMargin:'0px 0px -45px 0px'});
+  targets.forEach(el => observer.observe(el));
 }
 
-/* ==========================================================================
-   11. SCROLL PROGRESS BAR
-   ========================================================================== */
-function initScrollProgressBar() {
-  let progressContainer = document.querySelector('.scroll-progress-container');
-  let progressBar = document.querySelector('.scroll-progress-bar');
-
-  // If not already in DOM, create it dynamically
-  if (!progressContainer) {
-    progressContainer = document.createElement('div');
-    progressContainer.className = 'scroll-progress-container';
-    progressContainer.setAttribute('aria-hidden', 'true');
-    progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress-bar';
-    progressBar.id = 'scroll-progress-bar';
-    progressContainer.appendChild(progressBar);
-    document.body.prepend(progressContainer);
-  } else if (!progressBar) {
-    progressBar = progressContainer.querySelector('.scroll-progress-bar');
-  }
-
+function initScrollProgressBar(){
+  const bar = document.getElementById('scroll-progress-bar');
+  if(!bar) return;
   let ticking = false;
-
-  const updateProgress = () => {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-    const clampedProgress = Math.min(100, Math.max(0, progress));
-    if (progressBar) {
-      progressBar.style.width = `${clampedProgress}%`;
-    }
+  const update = () => {
+    const total = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = total > 0 ? (window.scrollY / total) * 100 : 0;
+    bar.style.width = Math.max(0, Math.min(100, progress)) + '%';
     ticking = false;
   };
-
   window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(updateProgress);
+    if(!ticking){
+      window.requestAnimationFrame(update);
       ticking = true;
     }
-  }, { passive: true });
-
-  window.addEventListener('resize', updateProgress, { passive: true });
-  updateProgress();
+  },{passive:true});
+  window.addEventListener('resize', update,{passive:true});
+  update();
 }
-
