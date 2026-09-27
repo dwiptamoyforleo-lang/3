@@ -3,88 +3,321 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="An overview of what North/03 does, who it helps, and how to begin a project.">
-  <meta property="og:title" content="Start Here — North/03">
-  <meta property="og:description" content="An overview of what North/03 does, who it helps, and how to begin a project.">
+  <title>Studio Blueprint &amp; Client Overview — Studio 03</title>
+  <meta name="description" content="Discover Studio 03's operational blueprint, engagement model, service-level agreements, and secure client onboarding portal.">
+  
+  <meta property="og:title" content="Studio Blueprint &amp; Client Overview — Studio 03">
+  <meta property="og:description" content="Operational blueprint, engagement model, SLAs, and client portal.">
   <meta property="og:type" content="website">
-  <title>Start Here — North/03</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
-  
-<script>
-(function(){
-  const pref = localStorage.getItem('site-theme-preference') || localStorage.getItem('site-theme') || 'dark';
-  const theme = pref === 'system'
-    ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
-    : (pref === 'light' ? 'light' : 'dark');
-  document.documentElement.setAttribute('data-theme', theme);
-  document.documentElement.setAttribute('data-theme-preference', pref);
-})();
-</script>
+
+  <script>
+    (function() {
+      const pref = localStorage.getItem('studio03-theme-pref') || 'dark';
+      let theme = pref;
+      if (pref === 'system') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-theme-preference', pref);
+    })();
+  </script>
 </head>
-<body class="page-overview">
-<div class="scroll-progress-container" aria-hidden="true"><div class="scroll-progress-bar" id="scroll-progress-bar"></div></div>
-<div class="topline"><div class="wrap topline-inner"><span>INDEPENDENT CREATIVE STUDIO</span><span>BRAND · DIGITAL · SPACE · CULTURE</span><span>OPEN FOR SELECT PROJECTS / 2026</span></div></div>
-<header class="site-header" id="site-header">
-  <div class="wrap header-inner">
-    <a href="index.html" class="brand" aria-label="North 03 home">
-      <span class="brand-mark"><span></span><span></span><span></span></span>
-      <span class="brand-text">NORTH<span>/</span>03</span>
-    </a>
-    <nav class="desktop-nav" aria-label="Main navigation"><a href="showcase.html" class="nav-link ">Work</a><a href="features.html" class="nav-link ">Services</a><a href="about.html" class="nav-link ">Studio</a><a href="testimonials.html" class="nav-link ">Voices</a><a href="contact.html" class="nav-link ">Contact</a></nav>
-    <div class="header-tools">
-      <div class="theme-selector">
-        <button class="theme-toggle-btn" type="button" aria-label="Select theme" aria-haspopup="true" aria-expanded="false">
-          <span class="theme-btn-icon"></span>
-          <span class="theme-btn-label">Theme</span>
-          <span class="theme-chevron">⌄</span>
+<body>
+  <div class="scroll-progress-container" aria-hidden="true">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-title" aria-label="Studio 03 Home">Studio 03</a>
+
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="features.html" class="nav-link">Services</a>
+        <a href="showcase.html" class="nav-link">Work</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="testimonials.html" class="nav-link">Proof</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="theme-selector">
+          <button class="theme-toggle-btn" aria-label="Select theme" aria-haspopup="true" aria-expanded="false" title="Toggle Theme">
+            <span class="theme-btn-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </span>
+          </button>
+          <div class="theme-dropdown" role="menu" aria-label="Theme options">
+            <button type="button" class="theme-dropdown-item" data-theme-value="light" role="menuitem">
+              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              <span>Light theme</span>
+              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+            <button type="button" class="theme-dropdown-item active" data-theme-value="dark" role="menuitem">
+              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+              <span>Dark theme</span>
+              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+            <button type="button" class="theme-dropdown-item" data-theme-value="system" role="menuitem">
+              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              <span>System default</span>
+              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <a href="#client-portal" class="btn-signin-secondary hide-on-mobile">Client Portal</a>
+        <a href="overview.html" class="btn btn-primary btn-sm">Get Started</a>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
         </button>
-        <div class="theme-dropdown" role="menu">
-          <button type="button" class="theme-dropdown-item" data-theme-value="light" role="menuitem"><span>01</span><strong>Light</strong><small>Paper / day</small><i></i></button>
-          <button type="button" class="theme-dropdown-item" data-theme-value="dark" role="menuitem"><span>02</span><strong>Dark</strong><small>Ink / night</small><i></i></button>
-          <button type="button" class="theme-dropdown-item" data-theme-value="system" role="menuitem"><span>03</span><strong>System</strong><small>Follow device</small><i></i></button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+      <nav class="mobile-nav-links" aria-label="Mobile Navigation">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="features.html" class="mobile-nav-link">Services</a>
+        <a href="showcase.html" class="mobile-nav-link">Work</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="testimonials.html" class="mobile-nav-link">Proof</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <a href="overview.html" class="btn btn-primary" style="width: 100%;">Get Started / Blueprint</a>
+        <a href="#client-portal" class="btn-signin-secondary" style="width: 100%; justify-content: center;">Client Portal Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Title -->
+  <section class="section" style="padding-top: 5rem; padding-bottom: 3.5rem;">
+    <div class="container">
+      <div class="hero-meta-bar">
+        <div>
+          <span>ONBOARDING &amp; DISCOVER</span>
+          <span aria-hidden="true"> · </span>
+          <span>STUDIO BLUEPRINT 2026</span>
+        </div>
+        <div>
+          <span>OPERATIONAL ARCHITECTURE</span>
         </div>
       </div>
-      <a href="contact.html" class="signin-link">Sign in</a>
-      <a href="overview.html" class="start-link">Start a project <span>↗</span></a>
-      <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-  <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
-    <div class="mobile-drawer-head"><span>MENU / 03</span><button class="mobile-close-btn" type="button" aria-label="Close menu">×</button></div>
-    <nav class="mobile-nav-links" aria-label="Mobile navigation"><a href="index.html" class="mobile-nav-link "><span>Home</span><span>↗</span></a><a href="showcase.html" class="mobile-nav-link "><span>Work</span><span>↗</span></a><a href="features.html" class="mobile-nav-link "><span>Services</span><span>↗</span></a><a href="about.html" class="mobile-nav-link "><span>Studio</span><span>↗</span></a><a href="testimonials.html" class="mobile-nav-link "><span>Voices</span><span>↗</span></a><a href="contact.html" class="mobile-nav-link "><span>Contact</span><span>↗</span></a></nav>
-    <div class="mobile-drawer-foot">
-      <a href="contact.html" class="mobile-signin">Sign in <span>↗</span></a>
-      <a href="overview.html" class="mobile-cta">Start a project <span>↗</span></a>
-    </div>
-  </div>
-</header>
-<main>
-<section class="page-hero start-hero"><div class="wrap"><p class="eyebrow">Start here / overview</p><h1>THE QUICK<br><em>VERSION.</em></h1><p>North/03 helps ambitious teams move from “we need a better presence” to a brand people can actually feel.</p><div class="overview-portal"><div><span>Existing client / member</span><p>Looking for your project space or account entry?</p></div><a href="contact.html" class="portal-link">Sign in <span>↗</span></a></div></div></section>
-<section class="section overview-section"><div class="wrap"><div class="section-head-row"><div><p class="section-index">01 / 04</p><p class="eyebrow">What we do</p></div><span class="mini-note">Four disciplines. One connected point of view.</span></div><div class="overview-grid"><article><span>01</span><h2>Make the strategy visible</h2><p>Positioning, naming, narrative, architecture, and a clear reason to care.</p><a href="features.html" class="text-link">Services <span>↗</span></a></article><article><span>02</span><h2>Make the identity ownable</h2><p>Visual systems, art direction, verbal tone, and launch-ready templates.</p><a href="showcase.html" class="text-link">Selected work <span>↗</span></a></article><article><span>03</span><h2>Make the digital experience feel right</h2><p>Web direction, UX, interaction, content structure, and production support.</p><a href="features.html" class="text-link">How we work <span>↗</span></a></article><article><span>04</span><h2>Make the whole thing travel</h2><p>Campaigns, content, environment, rollout, and systems your team can keep using.</p><a href="about.html" class="text-link">The studio <span>↗</span></a></article></div></div></section>
-<section class="section dark-band"><div class="wrap overview-highlight"><div><p class="eyebrow">What to expect</p><h2>Clearer brief.<br><em>Sharper decisions.</em></h2></div><div class="highlight-list"><div><strong>01</strong><span>Senior involvement from first conversation to handover.</span></div><div><strong>02</strong><span>A compact team assembled around the actual problem.</span></div><div><strong>03</strong><span>Work designed for real-world use, not just presentation screens.</span></div><div><strong>04</strong><span>A practical launch path with the right level of support.</span></div></div></div></section>
-<section class="section overview-stats"><div class="wrap numbers-grid"><div><span>Best for</span><strong>Ambitious teams</strong></div><div><span>Typical scope</span><strong>4–16 weeks</strong></div><div><span>Output</span><strong>Strategy → system</strong></div><div><span>Next step</span><strong>15-min intro</strong></div></div></section>
-<section class="section cta-section compact"><div class="wrap cta-block"><p class="eyebrow">Ready to make the move?</p><h2>Let's give the idea<br><em>a proper shape.</em></h2><div class="cta-row"><a href="contact.html" class="button button-dark">Start a project <span>↗</span></a><a href="about.html" class="text-link">Meet North/03 <span>↗</span></a></div></div></section></main>
-<footer class="site-footer">
-  <div class="wrap footer-main">
-    <div class="footer-statement">
-      <span class="eyebrow">NORTH / 03</span>
-      <h2>MAKE SOMETHING<br><em>WORTH NOTICING.</em></h2>
-      <a href="overview.html" class="text-link large">Begin a project <span>↗</span></a>
-    </div>
-    <div class="footer-columns">
-      <div><span class="footer-label">Explore</span><a href="index.html">Home</a><a href="showcase.html">Work</a><a href="features.html">Services</a><a href="about.html">Studio</a></div>
-      <div><span class="footer-label">Connect</span><a href="contact.html">Contact</a><a href="contact.html">Sign in</a><a href="overview.html">Start here</a></div>
-      <div><span class="footer-label">Areas</span><span>Brand systems</span><span>Digital products</span><span>Campaigns</span><span>Spaces & culture</span></div>
-    </div>
-  </div>
-  <div class="wrap footer-bottom"><span>© <span class="current-year"></span> North/03 Studio</span><span>Built for independent makers & ambitious teams</span><a href="index.html">Back to top ↑</a></div>
-</footer>
 
-<script type="module" src="script.js"></script>
+      <h1 class="hero-mega-title">
+        The studio <span class="hero-highlight-word">blueprint</span>.
+      </h1>
+      <p class="section-desc-lead" style="margin-top: 1.5rem;">
+        Complete executive overview of Studio 03's engagement framework, service deliverables matrix, performance guarantees, and dedicated client access portal.
+      </p>
+    </div>
+  </section>
+
+  <!-- Client Access Portal Section (Secondary Sign In) -->
+  <section class="section" id="client-portal" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="overview-portal-banner">
+        <div class="overview-portal-text">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--color-accent); font-weight: 700;">
+            Secure Client Workspace Access
+          </div>
+          <h2 class="overview-portal-title">Client Repository &amp; Staging Portal</h2>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); max-width: 580px;">
+            Existing partners can access active Figma systems, Git repositories, live staging environments, and sprint deliverable schedules.
+          </p>
+        </div>
+
+        <div style="width: 100%; max-width: 380px;">
+          <form id="client-auth-form" onsubmit="event.preventDefault(); document.getElementById('portal-status-msg').style.display='block';">
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="text" placeholder="Passkey / Org Identifier" required style="flex: 1; padding: 0.75rem 1rem; background: var(--bg-surface-alt); border: 1px solid var(--border-strong); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.85rem; border-radius: 2px;">
+              <button type="submit" class="btn-signin-secondary" style="padding: 0.75rem 1.25rem;">
+                Authenticate &rarr;
+              </button>
+            </div>
+            <div id="portal-status-msg" style="display: none; margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-highlight);">
+              &check; Secure credential verified. Initializing encrypted staging handshake...
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Deliverables Matrix -->
+  <section class="section" id="deliverables-matrix">
+    <div class="container">
+      <div class="section-header-editorial">
+        <div class="section-index-tag">01. Deliverables Matrix</div>
+        <h2 class="section-heading-huge">Engagement scopes.</h2>
+        <p class="section-desc-lead">
+          Clear milestones, rigorous artifacts, and full intellectual property transfer upon final delivery.
+        </p>
+      </div>
+
+      <div style="overflow-x: auto;">
+        <table class="overview-matrix-table" aria-label="Studio Deliverables Matrix">
+          <thead>
+            <tr>
+              <th scope="col">Discipline</th>
+              <th scope="col">Sprint Duration</th>
+              <th scope="col">Key Deliverables</th>
+              <th scope="col">IP &amp; Source Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: 700; color: var(--text-primary);">Brand Architecture</td>
+              <td>4 &mdash; 6 Weeks</td>
+              <td>Wordmark vectors, typography pairings, color systems, master brand book</td>
+              <td>Full vector ownership + commercial usage rights</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700; color: var(--text-primary);">Digital Flagship</td>
+              <td>6 &mdash; 10 Weeks</td>
+              <td>Production-grade responsive web code, sub-50ms transitions, headless CMS</td>
+              <td>100% private GitHub repository transfer</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700; color: var(--text-primary);">Editorial Monograph</td>
+              <td>4 &mdash; 8 Weeks</td>
+              <td>Hardcover publication design, pre-press color proofing, packaging die-lines</td>
+              <td>Print-ready CMYK PDFs + artisan binder liaison</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700; color: var(--text-primary);">Spatial Direction</td>
+              <td>5 &mdash; 8 Weeks</td>
+              <td>Architectural wayfinding grids, spatial typography, fabrication dossiers</td>
+              <td>CAD / Vector schematics + installation manuals</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Offerings & SLA Commitments -->
+  <section class="section" id="sla">
+    <div class="container">
+      <div class="section-header-editorial">
+        <div class="section-index-tag">02. Commitments &amp; SLAs</div>
+        <h2 class="section-heading-huge">Performance benchmarks.</h2>
+      </div>
+
+      <div class="grid grid-3">
+        <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+          <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--text-primary);">&lt; 50ms</div>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; color: var(--color-accent); margin-top: 0.25rem;">Interaction Latency SLA</div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-top: 0.5rem;">
+            Every digital flagship engineered by Studio 03 is guaranteed to pass strict performance audits with sub-50ms client-side response.
+          </p>
+        </div>
+
+        <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+          <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--text-primary);">100%</div>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; color: var(--color-accent); margin-top: 0.25rem;">Core Web Vitals Pass Rate</div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-top: 0.5rem;">
+            Zero Cumulative Layout Shift (CLS), instantaneous Largest Contentful Paint (LCP), and full WCAG AA contrast compliance.
+          </p>
+        </div>
+
+        <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+          <div style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--color-accent);">1 : 1</div>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; color: var(--color-accent); margin-top: 0.25rem;">Direct Principal Access</div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-top: 0.5rem;">
+            Clients interface directly with partner creative directors and lead engineers—never account intermediaries or project junior desks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="studio-grand-cta">
+    <div class="container">
+      <div class="grand-cta-inner">
+        <div class="section-index-tag">Onboarding</div>
+        <h2 class="grand-cta-title">Begin your commission blueprint.</h2>
+        <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 1rem;">
+          <a href="contact.html" class="btn btn-primary btn-lg">Initiate Studio Inquiry</a>
+          <a href="showcase.html" class="btn btn-secondary btn-lg">Explore Completed Commissions &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div>
+          <a href="index.html" class="brand-title" style="font-size: 1.8rem; display: inline-block; margin-bottom: 1rem;">Studio 03</a>
+          <p style="font-size: 0.9rem; color: #82828e; max-width: 280px; line-height: 1.6;">
+            Contemporary creative agency engineering brand architectures, digital flagships, and spatial monographs.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Services &amp; Capabilities</a></li>
+            <li><a href="showcase.html">Selected Works</a></li>
+            <li><a href="about.html">Studio Philosophy</a></li>
+            <li><a href="testimonials.html">Client Proof</a></li>
+            <li><a href="contact.html">Inquiries</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Information</div>
+          <ul class="footer-links-list">
+            <li><a href="overview.html">Studio Overview / Blueprint</a></li>
+            <li><a href="#client-portal">Client Access Portal</a></li>
+            <li><a href="#sla">Engagement SLAs</a></li>
+            <li><a href="overview.html">Ethical Framework</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Global Studios</div>
+          <div style="display: flex; flex-direction: column; gap: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: #92929e;">
+            <div>
+              <span style="color: #ffffff; font-weight: 600;">BERLIN</span>: Köpenicker Str. 124<br>
+              <span data-studio-city="berlin" style="color: var(--color-accent);">00:00:00 BERLIN</span>
+            </div>
+            <div>
+              <span style="color: #ffffff; font-weight: 600;">NEW YORK</span>: 182 Lafayette St<br>
+              <span data-studio-city="nyc" style="color: var(--color-accent);">00:00:00 NYC</span>
+            </div>
+            <div>
+              <span style="color: #ffffff; font-weight: 600;">TOKYO</span>: Minami-Aoyama 5-7<br>
+              <span data-studio-city="tokyo" style="color: var(--color-accent);">00:00:00 TOKYO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-mega-wordmark" aria-hidden="true">STUDIO 03</div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; <span class="current-year">2026</span> STUDIO 03 CREATIVE AGENCY. ALL RIGHTS RESERVED.</div>
+        <div><span>DESIGN ARCHITECTURE: 2026.CREATIVE</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
 </body>
 </html>

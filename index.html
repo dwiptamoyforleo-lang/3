@@ -3,154 +3,545 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="An independent creative studio template for brand, web, culture, spaces, and digital production.">
-  <meta property="og:title" content="North/03 — Creative Studio">
-  <meta property="og:description" content="An independent creative studio template for brand, web, culture, spaces, and digital production.">
+  <title>Studio 03 — Contemporary Creative Agency &amp; Design Studio</title>
+  <meta name="description" content="Studio 03 is an independent creative agency engineering radical brand identities, high-performance digital flagships, and spatial monographs.">
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Studio 03 — Contemporary Creative Agency">
+  <meta property="og:description" content="An independent creative agency engineering radical brand identities, high-performance digital flagships, and spatial monographs.">
   <meta property="og:type" content="website">
-  <title>North/03 — Creative Studio</title>
+
+  <!-- Google Fonts Preconnect & High-character Typefaces -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
-  
-<script>
-(function(){
-  const pref = localStorage.getItem('site-theme-preference') || localStorage.getItem('site-theme') || 'dark';
-  const theme = pref === 'system'
-    ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
-    : (pref === 'light' ? 'light' : 'dark');
-  document.documentElement.setAttribute('data-theme', theme);
-  document.documentElement.setAttribute('data-theme-preference', pref);
-})();
-</script>
+
+  <!-- Immediate Theme Initializer to Prevent Flash of Wrong Theme -->
+  <script>
+    (function() {
+      const pref = localStorage.getItem('studio03-theme-pref') || 'dark';
+      let theme = pref;
+      if (pref === 'system') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-theme-preference', pref);
+    })();
+  </script>
 </head>
-<body class="page-home">
-<div class="scroll-progress-container" aria-hidden="true"><div class="scroll-progress-bar" id="scroll-progress-bar"></div></div>
-<div class="topline"><div class="wrap topline-inner"><span>INDEPENDENT CREATIVE STUDIO</span><span>BRAND · DIGITAL · SPACE · CULTURE</span><span>OPEN FOR SELECT PROJECTS / 2026</span></div></div>
-<header class="site-header" id="site-header">
-  <div class="wrap header-inner">
-    <a href="index.html" class="brand" aria-label="North 03 home">
-      <span class="brand-mark"><span></span><span></span><span></span></span>
-      <span class="brand-text">NORTH<span>/</span>03</span>
-    </a>
-    <nav class="desktop-nav" aria-label="Main navigation"><a href="showcase.html" class="nav-link ">Work</a><a href="features.html" class="nav-link ">Services</a><a href="about.html" class="nav-link ">Studio</a><a href="testimonials.html" class="nav-link ">Voices</a><a href="contact.html" class="nav-link ">Contact</a></nav>
-    <div class="header-tools">
-      <div class="theme-selector">
-        <button class="theme-toggle-btn" type="button" aria-label="Select theme" aria-haspopup="true" aria-expanded="false">
-          <span class="theme-btn-icon"></span>
-          <span class="theme-btn-label">Theme</span>
-          <span class="theme-chevron">⌄</span>
+<body>
+  <!-- Horizontal Scroll Progress Indicator -->
+  <div class="scroll-progress-container" aria-hidden="true">
+    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+  </div>
+
+  <!-- ==========================================================================
+       SITE HEADER & 3-ZONE TOP BAR CONTRACT
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <!-- Zone 1: Single text element wordmark -->
+      <a href="index.html" class="brand-title" aria-label="Studio 03 Home">
+        Studio 03
+      </a>
+
+      <!-- Zone 2: Clean text navigation links -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="features.html" class="nav-link">Services</a>
+        <a href="showcase.html" class="nav-link">Work</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="testimonials.html" class="nav-link">Proof</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Zone 3: Actions (Theme Selector, Secondary Sign-In, Primary Get Started) -->
+      <div class="header-actions">
+        <!-- Studio Theme Selector -->
+        <div class="theme-selector">
+          <button class="theme-toggle-btn" aria-label="Select theme" aria-haspopup="true" aria-expanded="false" title="Toggle Theme">
+            <span class="theme-btn-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </span>
+          </button>
+          <div class="theme-dropdown" role="menu" aria-label="Theme options">
+            <button type="button" class="theme-dropdown-item" data-theme-value="light" role="menuitem">
+              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              <span>Light theme</span>
+              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+            <button type="button" class="theme-dropdown-item active" data-theme-value="dark" role="menuitem">
+              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+              <span>Dark theme</span>
+              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+            <button type="button" class="theme-dropdown-item" data-theme-value="system" role="menuitem">
+              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              <span>System default</span>
+              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Secondary Sign In Button (Distinct Client Access) -->
+        <a href="overview.html#client-portal" class="btn-signin-secondary hide-on-mobile">Client Portal</a>
+
+        <!-- Primary Get Started CTA Button -->
+        <a href="overview.html" class="btn btn-primary btn-sm">Get Started</a>
+
+        <!-- Mobile Drawer Toggle Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
         </button>
-        <div class="theme-dropdown" role="menu">
-          <button type="button" class="theme-dropdown-item" data-theme-value="light" role="menuitem"><span>01</span><strong>Light</strong><small>Paper / day</small><i></i></button>
-          <button type="button" class="theme-dropdown-item" data-theme-value="dark" role="menuitem"><span>02</span><strong>Dark</strong><small>Ink / night</small><i></i></button>
-          <button type="button" class="theme-dropdown-item" data-theme-value="system" role="menuitem"><span>03</span><strong>System</strong><small>Follow device</small><i></i></button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+      <nav class="mobile-nav-links" aria-label="Mobile Navigation">
+        <a href="index.html" class="mobile-nav-link active">Home</a>
+        <a href="features.html" class="mobile-nav-link">Services</a>
+        <a href="showcase.html" class="mobile-nav-link">Work</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="testimonials.html" class="mobile-nav-link">Proof</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <a href="overview.html" class="btn btn-primary" style="width: 100%;">Get Started / Blueprint</a>
+        <a href="overview.html#client-portal" class="btn-signin-secondary" style="width: 100%; justify-content: center;">Client Portal Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO: MASSIVE STATEMENT & ASYMMETRIC VISUAL SHOWCASE
+       ========================================================================== -->
+  <section class="hero-creative-section" id="hero">
+    <div class="container">
+      <!-- Top Meta Bar -->
+      <div class="hero-meta-bar">
+        <div>
+          <span>EDITION 2026.CREATIVE</span>
+          <span aria-hidden="true"> · </span>
+          <span>STUDIO 03 DISCIPLINE</span>
+        </div>
+        <div>
+          <span data-studio-city="berlin">BERLIN STUDIO</span>
         </div>
       </div>
-      <a href="contact.html" class="signin-link">Sign in</a>
-      <a href="overview.html" class="start-link">Start a project <span>↗</span></a>
-      <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-  <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
-    <div class="mobile-drawer-head"><span>MENU / 03</span><button class="mobile-close-btn" type="button" aria-label="Close menu">×</button></div>
-    <nav class="mobile-nav-links" aria-label="Mobile navigation"><a href="index.html" class="mobile-nav-link active"><span>Home</span><span>↗</span></a><a href="showcase.html" class="mobile-nav-link "><span>Work</span><span>↗</span></a><a href="features.html" class="mobile-nav-link "><span>Services</span><span>↗</span></a><a href="about.html" class="mobile-nav-link "><span>Studio</span><span>↗</span></a><a href="testimonials.html" class="mobile-nav-link "><span>Voices</span><span>↗</span></a><a href="contact.html" class="mobile-nav-link "><span>Contact</span><span>↗</span></a></nav>
-    <div class="mobile-drawer-foot">
-      <a href="contact.html" class="mobile-signin">Sign in <span>↗</span></a>
-      <a href="overview.html" class="mobile-cta">Start a project <span>↗</span></a>
-    </div>
-  </div>
-</header>
-<main>
-<section class="hero hero-home">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow">Creative studio / 03</p>
-      <h1>WE MAKE<br><span>BRANDS</span><em>HARD TO IGNORE.</em></h1>
-      <p class="hero-intro">North/03 is an independent studio for teams that want the strategy, identity, digital experience, and visual world to feel like one idea.</p>
-      <div class="hero-actions"><a href="overview.html" class="button button-solid">Start a project <span>↗</span></a><a href="showcase.html" class="text-link">View selected work <span>↗</span></a></div>
-      <div class="hero-meta">
-        <div><strong>12+</strong><span>cities worked across</span></div>
-        <div><strong>48</strong><span>launches & activations</span></div>
-        <div><strong>04</strong><span>core disciplines</span></div>
+
+      <!-- Mega Headline Statement -->
+      <div class="hero-statement-wrap">
+        <h1 class="hero-mega-title">
+          We engineer <span class="hero-highlight-word">radical identities</span> &amp; digital monographs.
+        </h1>
+      </div>
+
+      <!-- Asymmetrical Split Grid -->
+      <div class="hero-split-grid">
+        <div>
+          <p class="hero-lead-text">
+            Studio 03 is an independent creative agency partnering with culture-defining brands, contemporary architecture studios, and ambitious technology ventures to build monumental brand architectures.
+          </p>
+          <div class="hero-action-cluster">
+            <a href="showcase.html" class="btn btn-primary btn-lg">Explore Selected Work</a>
+            <a href="overview.html" class="btn btn-secondary btn-lg">Studio Blueprint &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Featured Project Visual Hero Box -->
+        <div class="hero-visual-card" data-project-trigger data-title="Brutalist Pavilion Exhibition" data-desc="Complete architectural identity, spatial signage, and digital catalog system designed for the International Contemporary Architecture Triennale." data-meta="ARCHITECTURAL IDENTITY · 2026" data-img="/src/assets/images/hero_creative_architecture_1790509375492.jpg">
+          <div class="hero-visual-image-wrapper">
+            <img src="/src/assets/images/hero_creative_architecture_1790509375492.jpg" alt="Brutalist concrete architecture studio pavilion" loading="lazy" referrerpolicy="no-referrer">
+            <div class="hero-visual-badge-floating">Featured Monograph</div>
+          </div>
+          <div class="hero-visual-info">
+            <div>
+              <div class="hero-visual-title">Brutalist Pavilion 26</div>
+              <div class="hero-visual-discipline">Architectural Identity &amp; Digital Monograph</div>
+            </div>
+            <span class="btn-link-editorial">Inspect &rarr;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Large Quantitative Ticker -->
+      <div class="studio-ticker-bar">
+        <div class="ticker-item">
+          <span class="ticker-number">48+</span>
+          <span class="ticker-label">International Accolades &amp; Honors</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-number">140+</span>
+          <span class="ticker-label">Architectural Digital Releases</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-number">99.8%</span>
+          <span class="ticker-label">On-Schedule Delivery Track Record</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-number">03</span>
+          <span class="ticker-label">Global Studios (Berlin, NYC, Tokyo)</span>
+        </div>
       </div>
     </div>
-    <div class="hero-art-wrap">
-      <div class="hero-art">
-        <img src="assets/images/sarvatt-dining-hall.jpg" alt="Editorial hospitality interior project">
-        <div class="hero-art-label"><span>01 / 06</span><span>Editorial environment</span></div>
-        <div class="hero-art-sticker">VIEW<br>THE<br>WORK</div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 01: SELECTED WORKS (EDITORIAL STREAM)
+       ========================================================================== -->
+  <section class="section" id="featured-work">
+    <div class="container">
+      <div class="section-header-editorial">
+        <div class="section-index-tag">01. Selected Archive</div>
+        <h2 class="section-heading-huge">Works of lasting cultural impact.</h2>
+        <p class="section-desc-lead">
+          Every project is built from first principles: uncompromising typography, custom digital engineering, and rigorous aesthetic balance.
+        </p>
       </div>
-      <div class="hero-side-note"><span>Currently</span><strong>Building a sharper digital presence for teams with something to say.</strong><small>Remote / India / Worldwide</small></div>
+
+      <div class="project-stream-list">
+        <!-- Project 01 -->
+        <article class="project-stream-item">
+          <div class="project-stream-meta">
+            <span class="project-index-num">PROJECT // 01</span>
+            <h3 class="project-stream-title">Kinetic Identity Pavilion</h3>
+            <p class="project-stream-desc">
+              Comprehensive brand architecture and kinetic typography framework for the 2026 European Cultural Biennale.
+            </p>
+            <div class="project-stream-tags">
+              <span>Brand Architecture</span>
+              <span aria-hidden="true">·</span>
+              <span>Motion Systems</span>
+              <span aria-hidden="true">·</span>
+              <span>2026</span>
+            </div>
+          </div>
+          <div class="project-stream-visual-frame" data-project-trigger data-title="Kinetic Identity Pavilion" data-desc="A dynamic modular typography identity system capable of responsive restructuring across digital facades and large-scale print runs." data-meta="BRAND ARCHITECTURE · MOTION TYPOGRAPHY" data-img="/src/assets/images/project_kinetic_identity_1790509392943.jpg">
+            <img src="/src/assets/images/project_kinetic_identity_1790509392943.jpg" alt="Kinetic typography and graphic design exhibition poster" loading="lazy" referrerpolicy="no-referrer">
+            <div class="project-overlay-inspect">
+              <span class="inspect-pill">Inspect Project &rarr;</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 02 -->
+        <article class="project-stream-item">
+          <div class="project-stream-meta">
+            <span class="project-index-num">PROJECT // 02</span>
+            <h3 class="project-stream-title">Spatial Tokyo Monograph</h3>
+            <p class="project-stream-desc">
+              Bespoke environmental signage, limited edition hardcover book design, and digital archival museum portal.
+            </p>
+            <div class="project-stream-tags">
+              <span>Spatial Design</span>
+              <span aria-hidden="true">·</span>
+              <span>Monograph Print</span>
+              <span aria-hidden="true">·</span>
+              <span>2025</span>
+            </div>
+          </div>
+          <div class="project-stream-visual-frame" data-project-trigger data-title="Spatial Tokyo Monograph" data-desc="Complete exhibition identity for a brutalist gallery in Minato, Tokyo. Includes environmental signage and cloth-bound publication." data-meta="SPATIAL DIRECTION · EDITORIAL MONOGRAPH" data-img="/src/assets/images/project_spatial_mono_1790509406059.jpg">
+            <img src="/src/assets/images/project_spatial_mono_1790509406059.jpg" alt="Minimalist modern interior design gallery space with concrete surfaces" loading="lazy" referrerpolicy="no-referrer">
+            <div class="project-overlay-inspect">
+              <span class="inspect-pill">Inspect Project &rarr;</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 03 -->
+        <article class="project-stream-item">
+          <div class="project-stream-meta">
+            <span class="project-index-num">PROJECT // 03</span>
+            <h3 class="project-stream-title">Digital Editorial System</h3>
+            <p class="project-stream-desc">
+              Web platform and typography system built with zero layout compromise, sub-50ms navigation, and custom editorial layouts.
+            </p>
+            <div class="project-stream-tags">
+              <span>Web Architecture</span>
+              <span aria-hidden="true">·</span>
+              <span>Design System</span>
+              <span aria-hidden="true">·</span>
+              <span>2026</span>
+            </div>
+          </div>
+          <div class="project-stream-visual-frame" data-project-trigger data-title="Digital Editorial System" data-desc="High-performance web architecture and digital editorial experience engineered for luxury and cultural publications." data-meta="DIGITAL FLAGSHIP · WEB ARCHITECTURE" data-img="/src/assets/images/project_digital_editorial_1790509420045.jpg">
+            <img src="/src/assets/images/project_digital_editorial_1790509420045.jpg" alt="Creative portfolio art direction monograph with modern layout" loading="lazy" referrerpolicy="no-referrer">
+            <div class="project-overlay-inspect">
+              <span class="inspect-pill">Inspect Project &rarr;</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top: 3.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+        <span style="font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.1em;">
+          Displaying 3 of 18 Featured Projects
+        </span>
+        <a href="showcase.html" class="btn btn-secondary">Open Full Project Gallery &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 02: CAPABILITIES MATRIX
+       ========================================================================== -->
+  <section class="section" id="capabilities">
+    <div class="container">
+      <div class="section-header-editorial">
+        <div class="section-index-tag">02. Creative Disciplines</div>
+        <h2 class="section-heading-huge">End-to-end studio capabilities.</h2>
+        <p class="section-desc-lead">
+          We operate across strategy, visual systems, digital engineering, and spatial installations without passing work off to intermediaries.
+        </p>
+      </div>
+
+      <div class="capabilities-matrix-list">
+        <div class="capability-row-item">
+          <span class="cap-number">01</span>
+          <h3 class="cap-title">Brand Architecture</h3>
+          <p class="cap-desc">
+            Positioning strategy, brand nomenclature, custom typography curation, and comprehensive visual guidelines designed for enduring cultural relevance.
+          </p>
+          <div class="cap-deliverables-text">
+            Brand Books · Identity Kits · Typography Scale · Guidelines
+          </div>
+        </div>
+
+        <div class="capability-row-item">
+          <span class="cap-number">02</span>
+          <h3 class="cap-title">Digital Flagships</h3>
+          <p class="cap-desc">
+            Production-grade web architecture, bespoke interactive interactions, semantic performance optimization, and custom CMS integration.
+          </p>
+          <div class="cap-deliverables-text">
+            Web Platforms · Creative Microsites · Performance Engineering
+          </div>
+        </div>
+
+        <div class="capability-row-item">
+          <span class="cap-number">03</span>
+          <h3 class="cap-title">Editorial &amp; Print</h3>
+          <p class="cap-desc">
+            Hardcover monographs, quarterly journals, exhibition programs, and tactile packaging utilizing bespoke paper stocks and artisan binding techniques.
+          </p>
+          <div class="cap-deliverables-text">
+            Monographs · Exhibition Catalogs · Packaging Direction
+          </div>
+        </div>
+
+        <div class="capability-row-item">
+          <span class="cap-number">04</span>
+          <h3 class="cap-title">Spatial &amp; Environment</h3>
+          <p class="cap-desc">
+            Physical gallery wayfinding, exhibition layout architecture, digital facade projection mapping, and experiential showroom staging.
+          </p>
+          <div class="cap-deliverables-text">
+            Wayfinding · Exhibition Stands · Architectural Graphics
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 3.5rem;">
+        <a href="features.html" class="btn-link-editorial">Explore Complete Service Breakdown &amp; Deliverables &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 03: STUDIO PHILOSOPHY
+       ========================================================================== -->
+  <section class="section" id="philosophy">
+    <div class="container">
+      <div class="section-header-editorial">
+        <div class="section-index-tag">03. Philosophy &amp; Ethos</div>
+        <h2 class="section-heading-huge">We reject formulaic convenience.</h2>
+      </div>
+
+      <div class="grid grid-3">
+        <div style="border-top: 1px solid var(--border-color); padding-top: 2rem;">
+          <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; margin-bottom: 1rem;">
+            Architectural Rigor
+          </h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">
+            Design must not be decorative trivia. Every layout, hairline divider, and font pairing stems from spatial balance and functional clarity.
+          </p>
+        </div>
+
+        <div style="border-top: 1px solid var(--border-color); padding-top: 2rem;">
+          <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; margin-bottom: 1rem;">
+            Sub-50ms Fluidity
+          </h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">
+            We write clean, semantic code free from heavy framework bloat. Digital flagships load instantly and respond without hesitation.
+          </p>
+        </div>
+
+        <div style="border-top: 1px solid var(--border-color); padding-top: 2rem;">
+          <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; margin-bottom: 1rem;">
+            Cultural Longevity
+          </h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">
+            Trends decay within seasons; typographic poise endures decades. We design systems that look as authoritative in 2036 as they do today.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top: 3.5rem;">
+        <a href="about.html" class="btn btn-secondary">Learn More About Studio Roots &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 04: MONUMENTAL CLIENT PROOF
+       ========================================================================== -->
+  <section class="section" id="proof">
+    <div class="container">
+      <div class="section-header-editorial">
+        <div class="section-index-tag">04. Evidence &amp; Proof</div>
+        <h2 class="section-heading-huge">Documented outcomes.</h2>
+      </div>
+
+      <div class="editorial-quote-frame">
+        <p class="quote-statement">
+          &ldquo;Studio 03 dismantled our legacy brand architecture and crafted an uncompromising digital flagship that drove a +210% surge in international acquisitions within four months.&rdquo;
+        </p>
+        <div class="quote-attribution">
+          <span class="quote-author">Elena Rostova</span>
+          <span aria-hidden="true">·</span>
+          <span class="quote-client">Creative Director, Vanguard Arts Foundation</span>
+          <span aria-hidden="true">·</span>
+          <span>Berlin Hub</span>
+        </div>
+        <div class="quote-metric-impact">
+          +210% Qualified Institutional Engagement
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+        <a href="testimonials.html" class="btn btn-secondary">View All Client Endorsements &rarr;</a>
+        <a href="overview.html" class="btn-link-editorial">Review Studio SLA Commitments</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 05: GRAND CALL TO ACTION
+       ========================================================================== -->
+  <section class="studio-grand-cta">
+    <div class="container">
+      <div class="grand-cta-inner">
+        <div class="section-index-tag">05. Collaboration</div>
+        <h2 class="grand-cta-title">
+          Have an ambitious project? Let&rsquo;s engineer it.
+        </h2>
+        <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 640px; line-height: 1.6;">
+          We take on a limited number of commissions each quarter to guarantee partner-level focus on every commission.
+        </p>
+        <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 1rem;">
+          <a href="contact.html" class="btn btn-primary btn-lg">Initiate Studio Inquiry</a>
+          <a href="overview.html" class="btn btn-secondary btn-lg">Explore Studio Blueprint &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SITE FOOTER: BRUTALIST STUDIO SIGN-OFF
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div>
+          <a href="index.html" class="brand-title" style="font-size: 1.8rem; display: inline-block; margin-bottom: 1rem;">
+            Studio 03
+          </a>
+          <p style="font-size: 0.9rem; color: #82828e; max-width: 280px; line-height: 1.6;">
+            Contemporary creative agency engineering brand architectures, digital flagships, and spatial monographs.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Services &amp; Capabilities</a></li>
+            <li><a href="showcase.html">Selected Works</a></li>
+            <li><a href="about.html">Studio Philosophy</a></li>
+            <li><a href="testimonials.html">Client Proof</a></li>
+            <li><a href="contact.html">Inquiries</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Information</div>
+          <ul class="footer-links-list">
+            <li><a href="overview.html">Studio Overview / Blueprint</a></li>
+            <li><a href="overview.html#client-portal">Client Access Portal</a></li>
+            <li><a href="overview.html#sla">Engagement SLAs</a></li>
+            <li><a href="overview.html#terms">Ethical Framework</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Global Studios</div>
+          <div style="display: flex; flex-direction: column; gap: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: #92929e;">
+            <div>
+              <span style="color: #ffffff; font-weight: 600;">BERLIN</span>: Köpenicker Str. 124<br>
+              <span data-studio-city="berlin" style="color: var(--color-accent);">00:00:00 BERLIN</span>
+            </div>
+            <div>
+              <span style="color: #ffffff; font-weight: 600;">NEW YORK</span>: 182 Lafayette St<br>
+              <span data-studio-city="nyc" style="color: var(--color-accent);">00:00:00 NYC</span>
+            </div>
+            <div>
+              <span style="color: #ffffff; font-weight: 600;">TOKYO</span>: Minami-Aoyama 5-7<br>
+              <span data-studio-city="tokyo" style="color: var(--color-accent);">00:00:00 TOKYO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Giant Architectural Wordmark -->
+      <div class="footer-mega-wordmark" aria-hidden="true">
+        STUDIO 03
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; <span class="current-year">2026</span> STUDIO 03 CREATIVE AGENCY. ALL RIGHTS RESERVED.
+        </div>
+        <div>
+          <span>DESIGN ARCHITECTURE: 2026.CREATIVE</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       PROJECT LIGHTBOX MODAL (INTERACTIVE)
+       ========================================================================== -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+    <div class="lightbox-content-box">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close modal">&times;</button>
+      <div style="margin-bottom: 1.5rem; overflow: hidden; aspect-ratio: 16/10; border: 1px solid var(--border-color); background: #000;">
+        <img id="lightbox-image" src="" alt="Project Preview" style="width: 100%; height: 100%; object-fit: cover;" referrerpolicy="no-referrer">
+      </div>
+      <div id="lightbox-meta" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem;"></div>
+      <h3 id="lightbox-title" style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; margin-bottom: 1rem;"></h3>
+      <p id="lightbox-desc" style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem; margin-bottom: 1.5rem;"></p>
+      <div style="display: flex; justify-content: flex-end; gap: 1rem;">
+        <a href="contact.html" class="btn btn-primary btn-sm">Inquire on Similar Commission</a>
+      </div>
     </div>
   </div>
-</section>
 
-<section class="ticker-band" aria-label="Studio disciplines"><div class="ticker-track"><span>IDENTITY</span><i>×</i><span>DIGITAL</span><i>×</i><span>CAMPAIGNS</span><i>×</i><span>SPACE</span><i>×</i><span>CONTENT</span><i>×</i><span>IDENTITY</span><i>×</i><span>DIGITAL</span><i>×</i><span>CAMPAIGNS</span></div></section>
-
-<section class="section section-intro">
-  <div class="wrap split-intro">
-    <div><p class="section-index">00 / 05</p><p class="eyebrow">A different kind of agency template</p></div>
-    <div><h2>Big ideas need <em>clarity.</em><br>Good design makes the idea impossible to miss.</h2><p>From the first sketch to the final launch, we build systems that have a point of view and enough flexibility to keep working after the presentation ends.</p></div>
-  </div>
-</section>
-
-<section class="section work-preview">
-  <div class="wrap">
-    <div class="section-head-row"><div><p class="section-index">01 / 05</p><p class="eyebrow">Selected work</p></div><a href="showcase.html" class="text-link">See all projects <span>↗</span></a></div>
-    <div class="editorial-work-grid">
-      <a class="project-tile project-large" href="showcase.html" data-reveal><div class="project-image"><img src="assets/images/sarvatt-journey-logo.jpg" alt="Brand identity project"><span class="project-number">01</span><span class="project-arrow">↗</span></div><div class="project-caption"><span>Brand identity / Hospitality</span><strong>Sarvatt — a new language for everyday Indian dining.</strong></div></a>
-      <a class="project-tile project-small" href="showcase.html" data-reveal><div class="project-image"><img src="assets/images/sarvatt-mishtaan-thaal.jpg" alt="Packaging and art direction project"><span class="project-number">02</span><span class="project-arrow">↗</span></div><div class="project-caption"><span>Art direction / Packaging</span><strong>Table stories built to be remembered.</strong></div></a>
-      <a class="project-tile project-wide" href="showcase.html" data-reveal><div class="project-image"><img src="assets/images/Screenshot_20260925_063720_Gallery.jpg" alt="Digital editorial project"><span class="project-number">03</span><span class="project-arrow">↗</span></div><div class="project-caption"><span>Digital / Experience</span><strong>From static gallery to living visual archive.</strong></div></a>
-    </div>
-  </div>
-</section>
-
-<section class="section services-preview">
-  <div class="wrap">
-    <div class="section-head-row"><div><p class="section-index">02 / 05</p><p class="eyebrow">What we do</p></div><a href="features.html" class="text-link">Explore services <span>↗</span></a></div>
-    <div class="service-list">
-      <a href="features.html" class="service-row"><span>01</span><div><h3>Strategy & positioning</h3><p>Find the tension, define the point of view, make the opportunity obvious.</p></div><strong>↗</strong></a>
-      <a href="features.html" class="service-row"><span>02</span><div><h3>Identity & art direction</h3><p>Visual systems with enough character to own the room and enough structure to scale.</p></div><strong>↗</strong></a>
-      <a href="features.html" class="service-row"><span>03</span><div><h3>Digital experiences</h3><p>Websites and interactive products that make the brand feel alive, not simply present.</p></div><strong>↗</strong></a>
-      <a href="features.html" class="service-row"><span>04</span><div><h3>Campaigns & content</h3><p>Launch worlds, editorial systems, and content that move beyond a single deliverable.</p></div><strong>↗</strong></a>
-    </div>
-  </div>
-</section>
-
-<section class="section manifesto-section">
-  <div class="wrap manifesto-grid">
-    <div class="manifesto-quote"><span class="eyebrow">The studio rule</span><blockquote>“If the work can be described as ‘nice’, it probably needs another round.”</blockquote><a href="about.html" class="text-link">Meet the studio <span>↗</span></a></div>
-    <div class="manifesto-stats"><div><strong>2018</strong><span>Studio started</span></div><div><strong>4.8×</strong><span>Average repeat work</span></div><div><strong>∞</strong><span>Ways to make it sharper</span></div></div>
-  </div>
-</section>
-
-<section class="section voices-preview">
-  <div class="wrap">
-    <div class="section-head-row"><div><p class="section-index">03 / 05</p><p class="eyebrow">A few words from the room</p></div><a href="testimonials.html" class="text-link">Read all voices <span>↗</span></a></div>
-    <div class="featured-quote"><p>“They turned a messy ambition into a brand we could actually use, sell, and grow.”</p><span>— Maya Sen, founder / consumer brand</span></div>
-  </div>
-</section>
-
-<section class="section cta-section"><div class="wrap cta-block"><p class="eyebrow">04 / 05 · Start here</p><h2>Have a good problem?<br><em>Let's make it visible.</em></h2><div class="cta-row"><a href="overview.html" class="button button-dark">Explore the studio <span>↗</span></a><a href="contact.html" class="text-link">Talk to us <span>↗</span></a></div></div></section></main>
-<footer class="site-footer">
-  <div class="wrap footer-main">
-    <div class="footer-statement">
-      <span class="eyebrow">NORTH / 03</span>
-      <h2>MAKE SOMETHING<br><em>WORTH NOTICING.</em></h2>
-      <a href="overview.html" class="text-link large">Begin a project <span>↗</span></a>
-    </div>
-    <div class="footer-columns">
-      <div><span class="footer-label">Explore</span><a href="index.html">Home</a><a href="showcase.html">Work</a><a href="features.html">Services</a><a href="about.html">Studio</a></div>
-      <div><span class="footer-label">Connect</span><a href="contact.html">Contact</a><a href="contact.html">Sign in</a><a href="overview.html">Start here</a></div>
-      <div><span class="footer-label">Areas</span><span>Brand systems</span><span>Digital products</span><span>Campaigns</span><span>Spaces & culture</span></div>
-    </div>
-  </div>
-  <div class="wrap footer-bottom"><span>© <span class="current-year"></span> North/03 Studio</span><span>Built for independent makers & ambitious teams</span><a href="index.html">Back to top ↑</a></div>
-</footer>
-
-<script type="module" src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>

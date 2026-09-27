@@ -3,94 +3,325 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Strategy, identity, digital, campaigns, environments, and production for ambitious teams.">
-  <meta property="og:title" content="Services — North/03">
-  <meta property="og:description" content="Strategy, identity, digital, campaigns, environments, and production for ambitious teams.">
+  <title>Capabilities &amp; Services — Studio 03</title>
+  <meta name="description" content="Discover Studio 03's creative disciplines: brand architecture, bespoke digital flagships, editorial monographs, and spatial direction.">
+  
+  <meta property="og:title" content="Capabilities &amp; Services — Studio 03">
+  <meta property="og:description" content="Brand architecture, bespoke digital flagships, editorial monographs, and spatial direction.">
   <meta property="og:type" content="website">
-  <title>Services — North/03</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
-  
-<script>
-(function(){
-  const pref = localStorage.getItem('site-theme-preference') || localStorage.getItem('site-theme') || 'dark';
-  const theme = pref === 'system'
-    ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
-    : (pref === 'light' ? 'light' : 'dark');
-  document.documentElement.setAttribute('data-theme', theme);
-  document.documentElement.setAttribute('data-theme-preference', pref);
-})();
-</script>
+
+  <script>
+    (function() {
+      const pref = localStorage.getItem('studio03-theme-pref') || 'dark';
+      let theme = pref;
+      if (pref === 'system') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-theme-preference', pref);
+    })();
+  </script>
 </head>
-<body class="page-services">
-<div class="scroll-progress-container" aria-hidden="true"><div class="scroll-progress-bar" id="scroll-progress-bar"></div></div>
-<div class="topline"><div class="wrap topline-inner"><span>INDEPENDENT CREATIVE STUDIO</span><span>BRAND · DIGITAL · SPACE · CULTURE</span><span>OPEN FOR SELECT PROJECTS / 2026</span></div></div>
-<header class="site-header" id="site-header">
-  <div class="wrap header-inner">
-    <a href="index.html" class="brand" aria-label="North 03 home">
-      <span class="brand-mark"><span></span><span></span><span></span></span>
-      <span class="brand-text">NORTH<span>/</span>03</span>
-    </a>
-    <nav class="desktop-nav" aria-label="Main navigation"><a href="showcase.html" class="nav-link ">Work</a><a href="features.html" class="nav-link active">Services</a><a href="about.html" class="nav-link ">Studio</a><a href="testimonials.html" class="nav-link ">Voices</a><a href="contact.html" class="nav-link ">Contact</a></nav>
-    <div class="header-tools">
-      <div class="theme-selector">
-        <button class="theme-toggle-btn" type="button" aria-label="Select theme" aria-haspopup="true" aria-expanded="false">
-          <span class="theme-btn-icon"></span>
-          <span class="theme-btn-label">Theme</span>
-          <span class="theme-chevron">⌄</span>
+<body>
+  <div class="scroll-progress-container" aria-hidden="true">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-title" aria-label="Studio 03 Home">Studio 03</a>
+
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="features.html" class="nav-link active">Services</a>
+        <a href="showcase.html" class="nav-link">Work</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="testimonials.html" class="nav-link">Proof</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="theme-selector">
+          <button class="theme-toggle-btn" aria-label="Select theme" aria-haspopup="true" aria-expanded="false" title="Toggle Theme">
+            <span class="theme-btn-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </span>
+          </button>
+          <div class="theme-dropdown" role="menu" aria-label="Theme options">
+            <button type="button" class="theme-dropdown-item" data-theme-value="light" role="menuitem">
+              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              <span>Light theme</span>
+              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+            <button type="button" class="theme-dropdown-item active" data-theme-value="dark" role="menuitem">
+              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+              <span>Dark theme</span>
+              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+            <button type="button" class="theme-dropdown-item" data-theme-value="system" role="menuitem">
+              <svg class="theme-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              <span>System default</span>
+              <svg class="theme-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <a href="overview.html#client-portal" class="btn-signin-secondary hide-on-mobile">Client Portal</a>
+        <a href="overview.html" class="btn btn-primary btn-sm">Get Started</a>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
         </button>
-        <div class="theme-dropdown" role="menu">
-          <button type="button" class="theme-dropdown-item" data-theme-value="light" role="menuitem"><span>01</span><strong>Light</strong><small>Paper / day</small><i></i></button>
-          <button type="button" class="theme-dropdown-item" data-theme-value="dark" role="menuitem"><span>02</span><strong>Dark</strong><small>Ink / night</small><i></i></button>
-          <button type="button" class="theme-dropdown-item" data-theme-value="system" role="menuitem"><span>03</span><strong>System</strong><small>Follow device</small><i></i></button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+      <nav class="mobile-nav-links" aria-label="Mobile Navigation">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="features.html" class="mobile-nav-link active">Services</a>
+        <a href="showcase.html" class="mobile-nav-link">Work</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="testimonials.html" class="mobile-nav-link">Proof</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <a href="overview.html" class="btn btn-primary" style="width: 100%;">Get Started / Blueprint</a>
+        <a href="overview.html#client-portal" class="btn-signin-secondary" style="width: 100%; justify-content: center;">Client Portal Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Title Banner -->
+  <section class="section" style="padding-top: 5rem; padding-bottom: 4rem;">
+    <div class="container">
+      <div class="hero-meta-bar">
+        <div>
+          <span>DISCIPLINES // 01-05</span>
+          <span aria-hidden="true"> · </span>
+          <span>COMPREHENSIVE STUDIO OFFERING</span>
+        </div>
+        <div>
+          <span>Q1-Q4 2026 SCHEDULE</span>
         </div>
       </div>
-      <a href="contact.html" class="signin-link">Sign in</a>
-      <a href="overview.html" class="start-link">Start a project <span>↗</span></a>
-      <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-  <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
-    <div class="mobile-drawer-head"><span>MENU / 03</span><button class="mobile-close-btn" type="button" aria-label="Close menu">×</button></div>
-    <nav class="mobile-nav-links" aria-label="Mobile navigation"><a href="index.html" class="mobile-nav-link "><span>Home</span><span>↗</span></a><a href="showcase.html" class="mobile-nav-link "><span>Work</span><span>↗</span></a><a href="features.html" class="mobile-nav-link active"><span>Services</span><span>↗</span></a><a href="about.html" class="mobile-nav-link "><span>Studio</span><span>↗</span></a><a href="testimonials.html" class="mobile-nav-link "><span>Voices</span><span>↗</span></a><a href="contact.html" class="mobile-nav-link "><span>Contact</span><span>↗</span></a></nav>
-    <div class="mobile-drawer-foot">
-      <a href="contact.html" class="mobile-signin">Sign in <span>↗</span></a>
-      <a href="overview.html" class="mobile-cta">Start a project <span>↗</span></a>
-    </div>
-  </div>
-</header>
-<main>
-<section class="page-hero editorial-hero"><div class="wrap"><p class="eyebrow">Services / 01</p><h1>STRATEGY IS<br><em>PART OF THE DESIGN.</em></h1><p>Our service model is deliberately compact: fewer hand-offs, more shared thinking, and a clear line between the idea and the thing people see.</p></div></section>
-<section class="section service-index"><div class="wrap"><div class="section-head-row"><div><p class="section-index">01 / 04</p><p class="eyebrow">Capabilities</p></div><span class="mini-note">Built to flex around your team, not replace it.</span></div>
-<div class="numbered-services">
-  <article><span>01</span><div><h2>Strategy & positioning</h2><p>Research, audience framing, proposition, naming direction, architecture, launch planning.</p><div class="chip-row"><span>Research</span><span>Positioning</span><span>Naming</span><span>Architecture</span></div></div><b>↗</b></article>
-  <article><span>02</span><div><h2>Identity & art direction</h2><p>Verbal worlds, visual identities, campaigns, art direction, systems, guidelines, launch kits.</p><div class="chip-row"><span>Identity</span><span>Art direction</span><span>Campaigns</span><span>Systems</span></div></div><b>↗</b></article>
-  <article><span>03</span><div><h2>Digital experiences</h2><p>Web direction, UX, interaction, prototypes, editorial systems, design-ready production.</p><div class="chip-row"><span>Web</span><span>UX</span><span>Motion</span><span>Prototyping</span></div></div><b>↗</b></article>
-  <article><span>04</span><div><h2>Content & production</h2><p>Launch narratives, social systems, editorial content, photography direction, rollout toolkits.</p><div class="chip-row"><span>Content</span><span>Editorial</span><span>Production</span><span>Rollout</span></div></div><b>↗</b></article>
-</div></div></section>
-<section class="section dark-band"><div class="wrap process-grid"><div><p class="eyebrow">How it works</p><h2>Small team.<br><em>Fast decisions.</em></h2></div><div class="process-list"><div><span>01</span><strong>Frame the problem</strong><p>We get specific about what needs to change, who it needs to change for, and why now.</p></div><div><span>02</span><strong>Build the point of view</strong><p>We test directions early, make the difference obvious, and bring the right people into the room.</p></div><div><span>03</span><strong>Make the system</strong><p>We turn the winning idea into a flexible language across screens, spaces, campaigns, and touchpoints.</p></div><div><span>04</span><strong>Launch + stay useful</strong><p>Files, frameworks, templates, and a handover that lets your team keep moving.</p></div></div></div></section>
-<section class="section proof-strip"><div class="wrap proof-grid"><div><strong>01</strong><span>One senior creative thread from start to finish.</span></div><div><strong>02</strong><span>Clear weekly decisions, fewer endless review loops.</span></div><div><strong>03</strong><span>A system your team can actually use after launch.</span></div></div></section>
-<section class="section cta-section compact"><div class="wrap cta-block"><p class="eyebrow">Ready when you are</p><h2>Bring the messy brief.<br><em>We'll find the shape.</em></h2><a href="contact.html" class="button button-dark">Start a conversation <span>↗</span></a></div></section></main>
-<footer class="site-footer">
-  <div class="wrap footer-main">
-    <div class="footer-statement">
-      <span class="eyebrow">NORTH / 03</span>
-      <h2>MAKE SOMETHING<br><em>WORTH NOTICING.</em></h2>
-      <a href="overview.html" class="text-link large">Begin a project <span>↗</span></a>
-    </div>
-    <div class="footer-columns">
-      <div><span class="footer-label">Explore</span><a href="index.html">Home</a><a href="showcase.html">Work</a><a href="features.html">Services</a><a href="about.html">Studio</a></div>
-      <div><span class="footer-label">Connect</span><a href="contact.html">Contact</a><a href="contact.html">Sign in</a><a href="overview.html">Start here</a></div>
-      <div><span class="footer-label">Areas</span><span>Brand systems</span><span>Digital products</span><span>Campaigns</span><span>Spaces & culture</span></div>
-    </div>
-  </div>
-  <div class="wrap footer-bottom"><span>© <span class="current-year"></span> North/03 Studio</span><span>Built for independent makers & ambitious teams</span><a href="index.html">Back to top ↑</a></div>
-</footer>
 
-<script type="module" src="script.js"></script>
+      <h1 class="hero-mega-title">
+        Strategic design &amp; <span class="hero-highlight-word">precision engineering</span>.
+      </h1>
+      <p class="section-desc-lead" style="margin-top: 2rem;">
+        We build enduring brand identities, digital flagships, tactile monographs, and immersive spatial installations. Every project is executed in-house with zero outsourcing.
+      </p>
+    </div>
+  </section>
+
+  <!-- Discipline Deep-Dives -->
+  <section class="section" id="disciplines-breakdown">
+    <div class="container">
+      <div class="section-header-editorial">
+        <div class="section-index-tag">01. Service Tracks</div>
+        <h2 class="section-heading-huge">Core disciplines.</h2>
+      </div>
+
+      <div class="grid grid-2" style="gap: 3.5rem;">
+        <!-- Track 01 -->
+        <div style="border-top: 2px solid var(--color-accent); padding-top: 2rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-accent); font-weight: 700;">TRACK 01</span>
+          <h3 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; margin: 0.75rem 0 1rem 0;">
+            Brand Architecture &amp; Identity
+          </h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+            From strategic positioning to custom typography, we design identity systems that command authority across digital and physical mediums.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); line-height: 1.6;">
+            Deliverables: Strategic Positioning · Wordmark &amp; Monogram · Typographic Pairing Rules · Comprehensive Identity Guidelines · Vector Assets
+          </div>
+        </div>
+
+        <!-- Track 02 -->
+        <div style="border-top: 2px solid var(--color-accent); padding-top: 2rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-accent); font-weight: 700;">TRACK 02</span>
+          <h3 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; margin: 0.75rem 0 1rem 0;">
+            Digital Flagships &amp; Engineering
+          </h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+            Custom digital experiences built with semantic web standards, sub-50ms interaction latency, fluid motion, and accessible structure.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); line-height: 1.6;">
+            Deliverables: Responsive Web Architecture · Interactive Motion Systems · Micro-interactions · Performance Audit · Production Hosting Setup
+          </div>
+        </div>
+
+        <!-- Track 03 -->
+        <div style="border-top: 2px solid var(--color-accent); padding-top: 2rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-accent); font-weight: 700;">TRACK 03</span>
+          <h3 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; margin: 0.75rem 0 1rem 0;">
+            Editorial Monographs &amp; Print
+          </h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+            Physical books, archival catalogs, and bespoke packaging crafted with premium FSC papers, foil debossing, and Swiss grid typography.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); line-height: 1.6;">
+            Deliverables: Hardcover Monographs · Exhibition Catalogs · Packaging Die-Lines · Print Pre-press Supervision · Artisan Binder Liaison
+          </div>
+        </div>
+
+        <!-- Track 04 -->
+        <div style="border-top: 2px solid var(--color-accent); padding-top: 2rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-accent); font-weight: 700;">TRACK 04</span>
+          <h3 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; margin: 0.75rem 0 1rem 0;">
+            Spatial Direction &amp; Wayfinding
+          </h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+            Transforming physical environments through architectural signage, exhibition wayfinding grids, and environmental graphic design.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); line-height: 1.6;">
+            Deliverables: Signage Architecture · Spatial Typography · Exhibition Wall Layouts · Material Specifications · Fabrication Dossiers
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Studio Methodology (5-Phase Process) -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-header-editorial">
+        <div class="section-index-tag">02. Methodology</div>
+        <h2 class="section-heading-huge">The 5-stage studio process.</h2>
+        <p class="section-desc-lead">
+          Transparent, rigorous, and milestone-governed. Here is how commissions evolve from hypothesis into shipped reality.
+        </p>
+      </div>
+
+      <div class="process-timeline-grid">
+        <div class="process-step-card">
+          <span class="step-indicator">01</span>
+          <h3 class="step-name">Hypothesis &amp; Audit</h3>
+          <p class="step-desc">
+            We deconstruct the brand landscape, interrogate existing touchpoints, and define the core creative provocation.
+          </p>
+        </div>
+
+        <div class="process-step-card">
+          <span class="step-indicator">02</span>
+          <h3 class="step-name">Architectural Vision</h3>
+          <p class="step-desc">
+            Establishing the visual vocabulary, typography scales, material palette, and grid framework.
+          </p>
+        </div>
+
+        <div class="process-step-card">
+          <span class="step-indicator">03</span>
+          <h3 class="step-name">Rapid Prototyping</h3>
+          <p class="step-desc">
+            Building live working code and physical paper mockups to test tactile feel, motion latency, and responsive fidelity.
+          </p>
+        </div>
+
+        <div class="process-step-card">
+          <span class="step-indicator">04</span>
+          <h3 class="step-name">Precision Production</h3>
+          <p class="step-desc">
+            End-to-end implementation of all digital surfaces, pre-press print production, or physical fabrication blueprints.
+          </p>
+        </div>
+
+        <div class="process-step-card">
+          <span class="step-indicator">05</span>
+          <h3 class="step-name">Preservation &amp; SLA</h3>
+          <p class="step-desc">
+            Delivery of design tokens, complete vector sources, documented code, and ongoing performance supervision.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="studio-grand-cta">
+    <div class="container">
+      <div class="grand-cta-inner">
+        <div class="section-index-tag">Commission Availability</div>
+        <h2 class="grand-cta-title">Ready to define your brand&rsquo;s architectural era?</h2>
+        <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 1rem;">
+          <a href="contact.html" class="btn btn-primary btn-lg">Request Commission Inquiry</a>
+          <a href="overview.html" class="btn btn-secondary btn-lg">Read Studio Blueprint &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div>
+          <a href="index.html" class="brand-title" style="font-size: 1.8rem; display: inline-block; margin-bottom: 1rem;">Studio 03</a>
+          <p style="font-size: 0.9rem; color: #82828e; max-width: 280px; line-height: 1.6;">
+            Contemporary creative agency engineering brand architectures, digital flagships, and spatial monographs.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Services &amp; Capabilities</a></li>
+            <li><a href="showcase.html">Selected Works</a></li>
+            <li><a href="about.html">Studio Philosophy</a></li>
+            <li><a href="testimonials.html">Client Proof</a></li>
+            <li><a href="contact.html">Inquiries</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Information</div>
+          <ul class="footer-links-list">
+            <li><a href="overview.html">Studio Overview / Blueprint</a></li>
+            <li><a href="overview.html#client-portal">Client Access Portal</a></li>
+            <li><a href="overview.html#sla">Engagement SLAs</a></li>
+            <li><a href="overview.html#terms">Ethical Framework</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Global Studios</div>
+          <div style="display: flex; flex-direction: column; gap: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: #92929e;">
+            <div>
+              <span style="color: #ffffff; font-weight: 600;">BERLIN</span>: Köpenicker Str. 124<br>
+              <span data-studio-city="berlin" style="color: var(--color-accent);">00:00:00 BERLIN</span>
+            </div>
+            <div>
+              <span style="color: #ffffff; font-weight: 600;">NEW YORK</span>: 182 Lafayette St<br>
+              <span data-studio-city="nyc" style="color: var(--color-accent);">00:00:00 NYC</span>
+            </div>
+            <div>
+              <span style="color: #ffffff; font-weight: 600;">TOKYO</span>: Minami-Aoyama 5-7<br>
+              <span data-studio-city="tokyo" style="color: var(--color-accent);">00:00:00 TOKYO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-mega-wordmark" aria-hidden="true">STUDIO 03</div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; <span class="current-year">2026</span> STUDIO 03 CREATIVE AGENCY. ALL RIGHTS RESERVED.</div>
+        <div><span>DESIGN ARCHITECTURE: 2026.CREATIVE</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
 </body>
 </html>
